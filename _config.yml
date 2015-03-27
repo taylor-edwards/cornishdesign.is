@@ -1,0 +1,7 @@
+# Site settings
+title: Cornish Design Expo ’15
+baseurl: ""
+url: "http://cornishdesign.is"
+
+# Build settings
+markdown: kramdown

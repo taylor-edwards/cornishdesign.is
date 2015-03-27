@@ -1,0 +1,43 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+$base-font-family: proxima-nova, "proxima-nova", "Helvetica Neue", Helvetica, sans-serif;
+$base-font-size:   25px;
+$base-font-weight: 300;
+$bold-font-weight: 900;
+$base-line-height: 1.6;
+
+$black-100:        #212021;
+$black-90:         #414042;
+
+$yellow:           #fedd00;
+$light-yellow:     #fff229;
+$magenta:          #9d0170;
+$light-magenta:    #bc3282;
+$red:              #e11b22;
+$light-red:        #f05b40;
+$green:            #9aca3c;
+$light-green:      #c7db5d;
+$blue:             #150958;
+$light-blue:       #3e387b;
+$mint:             #82ca9c;
+$light-mint:       #b3dcc0;
+$tan:              #ffe3a5;
+$light-tan:        #ffeec5;
+$teal:             #00888a;
+$light-teal:       #009aa5;
+
+$on-tablet:        768px;
+$on-desktop:       1024px;
+$on-large:         1440px;
+@mixin media-query($device) {
+    @media screen and (min-width: $device) {
+        @content;
+    }
+}
+
+@import
+  "base"
+;

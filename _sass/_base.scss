@@ -1,0 +1,98 @@
+body {
+  color:       $black-90;
+  font-family: $base-font-family;
+  font-size:   4vw;
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
+  margin: 0;
+}
+strong {
+  font-weight: $bold-font-weight;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.right {
+  text-align: right;
+}
+a,
+a:link {
+  color: $black-90;
+  text-decoration: none;
+}
+a:hover,
+a:active,
+a:focus {
+  color: $red;
+}
+main {
+  height: 20.9em;
+  padding: 1em 1.5em;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+svg,
+ul {
+  position: relative;
+  z-index: 100;
+}
+.svg-title {
+  height: 0;
+  margin: 2em 0 .5em;
+  max-width: 100%;
+  padding-bottom: 31.640625%;
+  position: relative;
+  &:after {
+    background: $light-yellow;
+    content: "";
+    height: 46%;
+    left: -1.5em;
+    position: absolute;
+    width: calc(100% + 3em);
+    top: 20%;
+    z-index: 0;
+  }
+}
+.svg-title svg {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+@include media-query($on-tablet) {
+  body {
+    font-size: 3vw;
+  }
+  main {
+    height: 26em;
+  }
+}
+@include media-query($on-desktop) {
+  body {
+    font-size: 20px;
+  }
+  main {
+    height: 30em;
+    padding: 2em 3em;
+  }
+  .svg-title {
+    margin-bottom: 0;
+    &:after {
+    left: -3em;
+    width: calc(100% + 6em);
+  }
+  }
+}
+@include media-query($on-large) {
+  main {
+    height: 38em;
+  }
+}
