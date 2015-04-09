@@ -1,0 +1,96 @@
+/***************************************************/
+/* View CSS guidelines in main.scss before editing */
+/***************************************************/
+
+body {
+  font-family:     $base-font-family;
+  font-size:       $base-font-size;
+  font-weight:     300;
+  line-height:     $base-font-size * 1.5;
+}
+hr {
+  border:          none;
+  border-bottom:   .3em solid;
+  margin:          1.5em 0 1.2em;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height:     1;
+  margin:          ($base-font-size * 1.5) 0;
+  text-transform:  uppercase;
+}
+h1,
+h2,
+h4 {
+  color:           $light-red;
+  font-weight:     900;
+}
+h3,
+h4,
+h5 {
+  margin:          0;
+}
+h3,
+h5 {
+  color:           $light-teal;
+  font-weight:     300;
+}
+h1 {
+  font-size:       9em;
+  line-height:     .8333;
+  margin-top:      0;
+}
+h2 {
+  font-size:       4.5em;
+}
+h3 {
+  font-size:       3em;
+}
+h4,
+h5 {
+  font-size:       1.5em;
+}
+p,
+ul,
+ol {
+  margin:          0 0 ($base-font-size * 1.5);
+}
+a,
+a:link {
+  color:           $light-teal;
+  display:         inline-block;
+  margin:          0 -.35em;
+  padding:         0 .35em;
+  text-decoration: none;
+}
+a:hover {
+  color:           $light-red;
+}
+a:active,
+a:focus,
+a:visited {
+  color:           $teal;
+}
+a:focus {
+  outline:         2px solid lighten($light-teal, 5%);
+}
+ul {
+  list-style:      none;
+  padding:         0;
+}
+ol {
+  padding:         0;
+}
+.unlist li {
+  display:         inline-block;
+  margin-left:     $base-font-size * 1.5;
+}
+.unlist li:first-child {
+  margin-left:     0;
+}
+.capital {
+  text-transform:  uppercase;
+}

@@ -1,10 +1,24 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
+
+/***************************************************/
+/*                 CSS GUIDELINES:                 */
+/*                                                 */
+/*  Avoid shorthand usage of the font properties   */
+/*     Always use relative units -- 1em = 20px     */
+/*    Do align all values across all properties    */
+/*          Build from smallest screen up          */
+/*          No "max-width" media queries           */
+/*  Specify groupings before individual elements   */
+/*    Use the appropriate file for declarations    */
+/*                                                 */
+/***************************************************/
+
 @charset "utf-8";
 
 $base-font-family: proxima-nova, "proxima-nova", "Helvetica Neue", Helvetica, sans-serif;
-$base-font-size:   25px;
+$base-font-size:   20px;
 $base-font-weight: 300;
 $bold-font-weight: 900;
 $base-line-height: 1.6;
@@ -27,7 +41,7 @@ $light-mint:       #b3dcc0;
 $tan:              #ffe3a5;
 $light-tan:        #ffeec5;
 $teal:             #00888a;
-$light-teal:       #009aa5;
+$light-teal:       #009aa4;
 
 $on-tablet:        768px;
 $on-desktop:       1024px;
@@ -39,5 +53,6 @@ $on-large:         1440px;
 }
 
 @import
+  "typography",
   "base"
 ;
