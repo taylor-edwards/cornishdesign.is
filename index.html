@@ -25,17 +25,10 @@ layout: default
   function renderContent(data) {
     console.log(data);
 
+    /* Create HTML then populate it */
     for (i=0; i<data.length; i++) {
       grid.innerHTML += '<li class="col-1 round"><a href="#" class="name-' + i +'"></a></li>';
-    }
-
-    var names = grid.querySelectorAll('a[class|="name"]');
-
-    for (i=0; i<data.length; i++) {
-      if (data[i]["Your Name"]) {
-        for (j=0; j<names.length; j++) {
-          names[i].innerHTML = data[i]["Your Name"];
-        }
+      document.getElementsByClassName("name-" + i)[0].innerHTML = data[i]["Your Name"];
     }
   }
 </script>
