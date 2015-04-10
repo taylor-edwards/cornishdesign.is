@@ -26,6 +26,22 @@ header > nav[role="navigation"] {
   }
   a:focus {
     outline:              none;
+    .circle {
+      box-shadow:         0 0 0 6px lighten($light-teal, 5%);
+      outline:            none;
+    }
+  }
+  a:hover:before {
+    .circle {
+      background:         $light-red;
+      border-radius:      50%;
+      content:            ""; /* required for IE8 */
+      height:             100%;
+      left:               0;
+      position:           absolute;
+      top:                0;
+      width:              100%;
+    }
   }
 }
 .circle {
@@ -37,18 +53,10 @@ header > nav[role="navigation"] {
   padding-bottom:          100%;
   position:                absolute;
   width:                   100%;
-  &:hover:before {
-    background:           $light-red;
-    border-radius:        50%;
-    content:              ""; /* required for IE8 */
-    height:               100%;
-    left:                 0;
-    position:             absolute;
-    top:                  0;
-    width:                100%;
-  }
-  &:focus {
-    box-shadow:           0 0 0 6px lighten($light-teal, 5%);
-    outline:              none;
-  }
+}
+.portrait-placeholder {
+  background:              $black-90;
+  height:                  0;
+  padding-bottom:          200%;
+  width:                   100%;
 }

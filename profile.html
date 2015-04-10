@@ -1,7 +1,56 @@
 ---
 layout: default
 subtitle: "Cornish Expo:"
-permalink: "/profile/"
 ---
 
-<article class="col-5">
+<article>
+  <aside class="col-1">
+    <div class="portrait-placeholder"></div>
+    <ul>
+      <li class="name"></li>
+      <li><a href="#" class="website"></a></li>
+      <li><a href="#" class="email"></a></li>
+    </ul>
+  </aside>
+  <div class="col-2">
+    <p class="statement"></p>
+  </div>
+</article>
+
+<script src="{{ site.baseurl }}js/tabletop.js"></script>
+<script>
+  function getURLParameter(name) {
+    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+  }
+  var name = getURLParameter("name");
+
+
+  window.onload = function() { init() };
+  function init() {
+    Tabletop.init( { key: "1CvMr7Scpa4v38EAWSOwqPbs1hpcNCNvZ395jfRXOkCM",
+                     callback: renderContent,
+                     simpleSheet: true,
+                     orderby: "name",
+                     reverse: true } );
+  }
+
+  function renderContent(data) {
+    function getProfile(property, value) {
+      for (i=0; i<data.length; i++) {
+        if (data[i][property] == value) return data[i];
+      }
+    }
+    var profile = getProfile("Your Name", name);
+    console.log(profile);
+
+    /* Populate HTML */
+    document.getElementById("pagetitle").innerHTML = profile["Your Name"];
+
+    document.getElementsByClassName("name")[0].innerHTML       = profile["Your Name"];
+    document.getElementsByClassName("website")[0].innerHTML    = profile["Your Website"];
+    document.getElementsByClassName("website")[0].setAttribute("href", profile["Your Website"]);
+    document.getElementsByClassName("email")[0].innerHTML      = profile["Your Email"];
+    document.getElementsByClassName("email")[0].setAttribute("href", "mailto:" + profile["Your Email"]);
+    document.getElementsByClassName("statement")[0].innerHTML  = profile["Your Statement"];
+  }
+</script>
