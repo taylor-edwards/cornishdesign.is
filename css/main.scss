@@ -43,16 +43,24 @@ $light-tan:        #ffeec5;
 $teal:             #00888a;
 $light-teal:       #009aa4;
 
-$on-tablet:        768px;
-$on-desktop:       1024px;
-$on-large:         1440px;
+$medium:           768px;
+$large:            1024px;
+$x-large:          1440px;
+
 @mixin media-query($device) {
-    @media screen and (min-width: $device) {
+    @media screen and (max-width: $device) {
         @content;
     }
 }
+/* @include media-query(max-width) {} */
+
+@mixin calc($property, $expression) {
+  #{$property}: calc(#{$expression});
+}
+/* @include calc(property, value) */
 
 @import
   "typography",
-  "base"
+  "layout",
+  "objects"
 ;

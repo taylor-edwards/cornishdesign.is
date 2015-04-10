@@ -1,11 +1,9 @@
 /***************************************************/
 /* View CSS guidelines in main.scss before editing */
 /***************************************************/
- 
- body {
-  margin: 0;
- }
- img,
- svg {
-  max-width: 100%;
- }
+
+.grid {
+  li {
+    text-align: center;
+  }
+}

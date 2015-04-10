@@ -56,7 +56,7 @@ h5 {
 p,
 ul,
 ol {
-  margin:          0 0 ($base-font-size * 1.5);
+  margin:          ($base-font-size * .75) 0;
 }
 a,
 a:link {
@@ -85,12 +85,19 @@ ol {
   padding:         0;
 }
 .unlist li {
-  display:         inline-block;
-  margin-left:     $base-font-size * 1.5;
+  float:           left;
+  margin-right:    $base-font-size * 1.5;
 }
-.unlist li:first-child {
-  margin-left:     0;
+.unlist li:last-child {
+  margin-right:    0;
 }
 .capital {
   text-transform:  uppercase;
+}
+/* 0 -> (x-large - 1) */
+@include media-query($x-large) {
+  h1 {
+    font-size:     6em;
+    line-height:   1;
+  }
 }
