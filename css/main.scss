@@ -43,9 +43,10 @@ $light-tan:        #ffeec5;
 $teal:             #00888a;
 $light-teal:       #009aa4;
 
-$medium:           768px;
-$large:            1024px;
-$x-large:          1440px;
+$small:            399px;
+$medium:           767px;
+$large:            1023px;
+$x-large:          1439px;
 
 @mixin media-query($device) {
     @media screen and (max-width: $device) {

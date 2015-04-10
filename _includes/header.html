@@ -1,11 +1,13 @@
 <nav role="navigation" class="col-5">
   <ul class="unlist capital">
-    <li><a href="#">Designers</a></li>
-    <li><a href="#">Projects</a></li>
-    <li><a href="#">Cornish</a></li>
+    <li><a href="{{ '#designers' | prepend: site.baseurl }}">Designers</a></li>
+    <li><a href="{{ 'projects/' | prepend: site.baseurl }}">Projects</a></li>
+    <li><a href="http://www.cornish.edu/">Cornish</a></li>
   </ul>
 </nav>
 <div role="heading" class="col-5">
-  <h3>{{ page.subtitle }}</h3>
+  {% if page.subtitle %}
+    <h3>{{ page.subtitle }}</h3>
+  {% endif %}
   <h1>{{ page.title }}</h1>
 </div>

@@ -19,6 +19,7 @@ svg {
   width:                100%;
   max-width:            $x-large;
 }
+/* 5 columns wide on $large and larger */
 .col-1,
 .col-2,
 .col-3,
@@ -27,10 +28,10 @@ svg {
   -webkit-box-sizing:   border-box;
   -moz-box-sizing:      border-box;
   box-sizing:           border-box;
-  float:                left;
+  display:              inline-block;
   margin:               0 2% 1.5em;
-  overflow:             hidden;
   position:             relative;
+  vertical-align:       top;
 }
 .col-1 {
   width:                16%;
@@ -46,4 +47,30 @@ svg {
 }
 .col-5 {
   width:                96%;
+}
+/* 3 columns wide on $small through $medium*/
+@include media-query($medium) {
+  .col-1 {
+    width:              29.333%;
+  }
+  .col-2,
+  .col-3 {
+    width:              62.666%;
+  }
+  .col-4,
+  .col-5 {
+    width:              96%;
+  }
+}
+/* 2 columns wide on anything smaller */
+@include media-query($small) {
+  .col-1 {
+    width:             46%;
+  }
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5 {
+    width:             96%;
+  }
 }

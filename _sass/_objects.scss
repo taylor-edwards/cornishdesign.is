@@ -2,35 +2,53 @@
 /* View CSS guidelines in main.scss before editing */
 /***************************************************/
 
-#grid {
-  li {
-    padding-bottom:     16%; /* 1:1 aspect ratio for col-1 width */
-    text-align:         center;
+body > header.row {
+  margin-top:             1.5em;
+  margin-bottom:          3em;
+}
+header > nav[role="navigation"] {
+  margin-bottom:          4.5em;
+}
+.grid-item {
+  text-align:             center;
+  h5 {
+    // margin-top:           30%; /* IE8 fallback */
+    // @include calc(margin-top, "50% - 1em");
+    margin-top:           105%; /* IE8 fallback */
+    @include calc(margin-top, "100% + .667em");
+    margin-bottom:        .667em;
+  }
+  a,
+  a:link {
+    margin:               0;
+    padding:              0;
+    width:                100%;
+  }
+  a:focus {
+    outline:              none;
   }
 }
-.grid-item a {
-  background:           $black-90;
-  border-radius:        50%;
-  display:              block;
-  height:               100%;
-  margin:               0;
-  padding:              0;
-  position:             absolute;
-  width:                100%;
-}
-.grid-item h4 {
-  margin-top:           40%; /* fallback */
-  @include calc(margin-top, "50% - 1em");
-}
-.grid-item a:hover {
-  &:before {
-    background:         $light-red;
-    border-radius:      50%;
-    content:            "";
-    height:             100%;
-    left:               0;
-    position:           absolute;
-    top:                0;
-    width:              100%;
+.circle {
+  background:              $black-90;
+  border-radius:           50%;
+  display:                 block;
+  height:                  0;
+  overflow:                hidden;
+  padding-bottom:          100%;
+  position:                absolute;
+  width:                   100%;
+  &:hover:before {
+    background:           $light-red;
+    border-radius:        50%;
+    content:              ""; /* required for IE8 */
+    height:               100%;
+    left:                 0;
+    position:             absolute;
+    top:                  0;
+    width:                100%;
+  }
+  &:focus {
+    box-shadow:           0 0 0 6px lighten($light-teal, 5%);
+    outline:              none;
   }
 }

@@ -6,9 +6,9 @@ description:  >
               project previews and designer profiles here.
 copyright:    >
               This website is an open source project on Github. 
-              All projects and content are © their respctive
+              All projects and content are © their respective
               owners.
-baseurl:      ""
+baseurl:      /
 
 url:          "http://cornishdesign.is"
 github:       "https://github.com/Rumudiez/cornishdesign.is"

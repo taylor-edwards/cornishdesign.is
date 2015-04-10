@@ -1,19 +1,19 @@
 ---
 layout: default
+title: Projects
 subtitle: "Cornish Expo:"
-title: "Design 2015"
-permalink: /
+permalink: /projects/
 ---
 
-<article class="col-5" id="designers">
-  <h3>Meet the Designers</h3>
-  <ul id="grid">
+<article class="col-5">
+  <h3>Project Directory</h3>
+  <ul id="projects">
   </ul>
 </article>
 
 <script src="{{ site.baseurl }}js/tabletop.js"></script>
 <script>
-  var grid = document.getElementById("grid");
+  var projects = document.getElementById("projects");
 
   window.onload = function() { init() };
 
@@ -30,8 +30,8 @@ permalink: /
 
     /* Create HTML then populate it */
     for (i=0; i<data.length; i++) {
-      grid.innerHTML += '<li class="col-1 grid-item"><a href="#"><div class="circle"></div><h5 class="name-' + i +'"></h5></a></li>';
-      document.getElementsByClassName("name-" + i)[0].innerHTML = data[i]["Your Name"];
+      projects.innerHTML += '<li><a href="#" class="project-' + i +'"></h4></a></li>';
+      document.getElementsByClassName("project-" + i)[0].innerHTML = data[i]["Project Name"];
     }
   }
 </script>
