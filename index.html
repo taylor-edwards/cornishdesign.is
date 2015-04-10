@@ -1,3 +1,41 @@
 ---
 layout: default
 ---
+
+<article class="col-5">
+  <h3>Meet the Designers</h3>
+  <ul class="unlist" id="grid">
+  </ul>
+</article>
+
+<script src="js/tabletop.js"></script>
+<script>
+  var grid = document.getElementById("grid");
+
+  window.onload = function() { init() };
+
+  function init() {
+    Tabletop.init( { key: "1CvMr7Scpa4v38EAWSOwqPbs1hpcNCNvZ395jfRXOkCM",
+                     callback: renderContent,
+                     simpleSheet: true,
+                     orderby: "name",
+                     reverse: true } );
+  }
+
+  function renderContent(data) {
+    console.log(data);
+
+    for (i=0; i<data.length; i++) {
+      grid.innerHTML += '<li class="col-1 round"><a href="#" class="name-' + i +'"></a></li>';
+    }
+
+    var names = grid.querySelectorAll('a[class|="name"]');
+
+    for (i=0; i<data.length; i++) {
+      if (data[i]["Your Name"]) {
+        for (j=0; j<names.length; j++) {
+          names[i].innerHTML = data[i]["Your Name"];
+        }
+    }
+  }
+</script>
