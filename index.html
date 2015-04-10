@@ -1,10 +1,12 @@
 ---
 layout: default
+subtitle: "Cornish Expo:"
+title: "Design 2015"
 ---
 
 <article class="col-5">
   <h3>Meet the Designers</h3>
-  <ul class="unlist" id="grid">
+  <ul id="grid">
   </ul>
 </article>
 
@@ -27,7 +29,7 @@ layout: default
 
     /* Create HTML then populate it */
     for (i=0; i<data.length; i++) {
-      grid.innerHTML += '<li class="col-1 round"><a href="#" class="name-' + i +'"></a></li>';
+      grid.innerHTML += '<li class="col-1 grid-item"><a href="#"><h4 class="name-' + i +'"></h4></a></li>';
       document.getElementsByClassName("name-" + i)[0].innerHTML = data[i]["Your Name"];
     }
   }

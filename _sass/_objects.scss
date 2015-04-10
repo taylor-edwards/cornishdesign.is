@@ -2,8 +2,35 @@
 /* View CSS guidelines in main.scss before editing */
 /***************************************************/
 
-.grid {
+#grid {
   li {
-    text-align: center;
+    padding-bottom:     16%; /* 1:1 aspect ratio for col-1 width */
+    text-align:         center;
+  }
+}
+.grid-item a {
+  background:           $black-90;
+  border-radius:        50%;
+  display:              block;
+  height:               100%;
+  margin:               0;
+  padding:              0;
+  position:             absolute;
+  width:                100%;
+}
+.grid-item h4 {
+  margin-top:           40%; /* fallback */
+  @include calc(margin-top, "50% - 1em");
+}
+.grid-item a:hover {
+  &:before {
+    background:         $light-red;
+    border-radius:      50%;
+    content:            "";
+    height:             100%;
+    left:               0;
+    position:           absolute;
+    top:                0;
+    width:              100%;
   }
 }
