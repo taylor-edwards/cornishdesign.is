@@ -32,7 +32,7 @@ permalink: /projects/
     for (i=0; i<data.length; i++) {
       projects.innerHTML += '<li><a href="#" class="project-' + i +'"></h4></a></li>';
       document.getElementsByClassName("project-" + i)[0].innerHTML = data[i]["Project Name"];
-      document.getElementsByClassName("project-" + i)[0].setAttribute("href", "{{ site.baseurl }}profile.html?name=" + encodeURI(data[i]["Your Name"]));
+      document.getElementsByClassName("project-" + i)[0].setAttribute("href", "{{ site.baseurl }}project.html?pname=" + encodeURI(data[i]["Project Name"]));
     }
   }
 </script>

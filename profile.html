@@ -1,15 +1,12 @@
 ---
 layout: default
-subtitle: "Cornish Expo:"
 ---
 
 <article>
   <aside class="col-1">
     <div class="portrait-placeholder"></div>
-    <ul>
+    <ul class="contact">
       <li class="name"></li>
-      <li><a href="#" class="website"></a></li>
-      <li><a href="#" class="email"></a></li>
     </ul>
   </aside>
   <div class="col-2">
@@ -35,22 +32,39 @@ subtitle: "Cornish Expo:"
   }
 
   function renderContent(data) {
-    function getProfile(property, value) {
+    function getObject(property, value) {
       for (i=0; i<data.length; i++) {
         if (data[i][property] == value) return data[i];
       }
     }
-    var profile = getProfile("Your Name", name);
+    var profile = getObject("Your Name", name);
+    var contact = document.getElementsByClassName("contact")[0];
     console.log(profile);
 
     /* Populate HTML */
-    document.getElementById("pagetitle").innerHTML = profile["Your Name"];
+    document.getElementById("pagesubtitle").innerHTML    = profile["Your Degree"];
+    document.getElementById("pagetitle").innerHTML       = profile["Your Name"];
+    document.getElementsByClassName("name")[0].innerHTML = profile["Your Name"];
 
-    document.getElementsByClassName("name")[0].innerHTML       = profile["Your Name"];
-    document.getElementsByClassName("website")[0].innerHTML    = profile["Your Website"];
-    document.getElementsByClassName("website")[0].setAttribute("href", profile["Your Website"]);
-    document.getElementsByClassName("email")[0].innerHTML      = profile["Your Email"];
-    document.getElementsByClassName("email")[0].setAttribute("href", "mailto:" + profile["Your Email"]);
-    document.getElementsByClassName("statement")[0].innerHTML  = profile["Your Statement"];
+    if (profile["Your Website"]) {
+      contact.innerHTML += '<li><a href="' + profile["Your Website"] + '">' + profile["Your Website"] + '</a></li>';
+    }
+    if (profile["Your Email"]) {
+      contact.innerHTML += '<li><a href="mailto:' + profile["Your Email"] + '">' + profile["Your Email"] + '</a></li>';
+    }
+    if (profile["Project Name"]) {
+      contact.innerHTML += '<li>My project: <a href="' + "{{ site.baseurl }}project.html?pname=" + encodeURI(profile["Project Name"]) + '">' + profile["Project Name"] + '</a></li>';
+    }
+    if (profile["Your Statement"]) {
+      document.getElementsByClassName("statement")[0].innerHTML += profile["Your Statement"];
+    }
   }
 </script>
+<style>
+  body header.row {
+    margin-bottom: 0;
+  }
+  body header.row h1 {
+    margin-bottom: 0;
+  }
+</style>

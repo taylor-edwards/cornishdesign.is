@@ -1,0 +1,67 @@
+---
+layout: default
+---
+
+<article>
+  <aside class="col-5">
+    <ul class="meta">
+    </ul>
+  </aside>
+  <div class="col-2">
+    <p class="statement"></p>
+  </div>
+</article>
+
+<script src="{{ site.baseurl }}js/tabletop.js"></script>
+<script>
+  function getURLParameter(name) {
+    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+  }
+  var pname = getURLParameter("pname");
+
+
+  window.onload = function() { init() };
+  function init() {
+    Tabletop.init( { key: "1CvMr7Scpa4v38EAWSOwqPbs1hpcNCNvZ395jfRXOkCM",
+                     callback: renderContent,
+                     simpleSheet: true,
+                     orderby: "name",
+                     reverse: true } );
+  }
+
+  function renderContent(data) {
+    function getObject(property, value) {
+      for (i=0; i<data.length; i++) {
+        if (data[i][property] == value) return data[i];
+      }
+    }
+    var project = getObject("Project Name", pname);
+    var meta    = document.getElementsByClassName("meta")[0];
+    console.log(project);
+
+    /* Populate HTML */
+    document.getElementById("pagesubtitle").innerHTML     = project["Your Name"];
+    document.getElementById("pagetitle").innerHTML        = project["Project Name"];
+
+    if (project["Project Location"]) {
+      meta.innerHTML += '<li><a href="' + project["Project Location"] + '">' + project["Project Location"] + '</a></li>';
+    }
+    if (project["Project Date"]) {
+      meta.innerHTML += '<li><a href="' + project["Project Date"] + '">' + project["Project Date"] + '</a></li>';
+    }
+    if (project["Project Website"]) {
+      meta.innerHTML += '<li><a href="' + project["Project Website"] + '">' + project["Project Website"] + '</a></li>';
+    }
+    if (project["Project Statement"]) {
+      document.getElementsByClassName("statement")[0].innerHTML += project["Project Statement"];
+    }
+  }
+</script>
+<style>
+  body header.row {
+    margin-bottom: 0;
+  }
+  body header.row h1 {
+    margin-bottom: 0;
+  }
+</style>
