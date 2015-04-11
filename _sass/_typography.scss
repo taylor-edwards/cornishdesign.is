@@ -25,6 +25,7 @@ h2,
 h3,
 h4,
 h5 {
+  text-rendering:  optimizeLegibility;
   line-height:     1;
   margin:          1.5rem 0;
   text-transform:  uppercase;
@@ -46,9 +47,11 @@ h5 {
   font-weight:     300;
 }
 h1 {
+  border-bottom:   .1em solid $light-teal;
   font-size:       8em;
-  line-height:     .75;
+  line-height:     .8333;
   margin-top:      0;
+  overflow:        hidden;
 }
 h2 {
   font-size:       4em;
@@ -91,16 +94,16 @@ a:link {
   padding:         0 .35em;
   text-decoration: none;
 }
+a:active,
 a:focus,
 a:hover {
   color:           $light-red;
 }
-a:active,
 a:visited {
   color:           $teal;
 }
 a:focus {
-  outline:         3px solid lighten($light-teal, 5%);
+  outline:         .15em solid lighten($light-teal, 5%);
 }
 ul {
   list-style:      none;

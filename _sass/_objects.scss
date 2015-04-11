@@ -10,7 +10,14 @@ header > nav[role="navigation"] {
   margin-bottom:          4.5em;
 }
 body > footer.row {
-  margin-top:             3em;
+  margin-top:             6em;
+  margin-bottom:          1.5em;
+  text-align:             right;
+  div {
+    border-top:           1px solid;
+    padding-top:          .75em;
+    text-align:           left;
+  }
 }
 .grid-item {
   text-align:             center;
@@ -62,4 +69,7 @@ body > footer.row {
   height:                  0;
   padding-bottom:          200%;
   width:                   100%;
+}
+#pagesubtitle {
+  z-index: 100;
 }
