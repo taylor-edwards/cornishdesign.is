@@ -1,5 +1,5 @@
 # cornishdesign.is
-Cornish's 2015 Design BFA Expo Promotional Website
+The promotional website for Cornish Expo: Design 2015. Representing Cornish's graduating design class of 2015, this website aims to deliver insightful previews of the designers and their projects at this year's BFA Show.
 
 This project uses Jekyll CMS. To set up a local development environment, just set up and run Jekyll.
   1. Install [Jekyll](http://jekyllrb.com/)
