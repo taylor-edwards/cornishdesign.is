@@ -1,5 +1,5 @@
 # Site settings
-title:        Cornish Design Expo ’15
+title:        "Cornish Expo: Design 2015"
 description:  >
               Cornish's Design BFA 2015 Expo, a public gallery 
               of Cornish's senior design class in Seattle. View 
@@ -9,8 +9,10 @@ copyright:    >
               All projects and content are protected accordingly 
               by their respective owners.
 baseurl:      /
-
 url:          "http://cornishdesign.is"
+
+parent:       Cornish College of the Arts
+parentURL:    "http://www.cornish.edu"
 github:       "https://github.com/Rumudiez/cornishdesign.is"
 
 # Build settings
