@@ -5,18 +5,40 @@ title: "Design 2015"
 permalink: /
 ---
 
-<article id="designers">
-  <h3 class="col-5">Meet the Designers</h3>
+<article class="col-2">
+  <p>From one design program, 54 vastly different creatives have emerged. Each completely unique — but connected — we are the graduating class of 2015.</p>
+  <p>We, as students, are individuals; we are not any one thing. We are varied in our interests and the ways we choose to express them. While at Cornish, we have each developed our unique interests and pursuits, yet we are a collaborative; all the richer for our variety. Growing together has challenged our beliefs and pushed our abilities. Our creative context is an environment of fellow thinkers: peers, faculty, artists, professionals — in this system we have matured into the deeply conceptual thinkers we are today. Our skills extend beyond the surface, to the form, substance, meaning, and purpose of the designed object.</p>
+  <p>Now we present our capstone projects; complex and unique. Each shares the backbone of rich thought and well formed concept, but is diversified by distinct form and content. Graphic, illustrative, formal, expressive; our work is supported by strong ideas and unique creative vision. This show is the manifestation of a diverse group of thinkers, creators and artists.</p>
+  <p>This show is us.</p>
+</article>
+
+<article id="designers" class="col-5">
+  <h3>Meet the Designers</h3>
   <ul id="grid">
   </ul>
 </article>
 
+<!--    Page Specific Styles    -->
+<!-- MOVE TO HEAD IN PRODUCTION -->
+<style id="styles">
+  .grid-item a:hover .circle:before,
+  .grid-item a:focus .circle:before {
+    content: "";
+    border-radius: 50%;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+</style>
+
 <script src="{{ site.baseurl }}js/tabletop.js"></script>
 <script>
+  /* Get grid element for HTML population */
   var grid = document.getElementById("grid");
 
   window.onload = function() { init() };
-
   function init() {
     Tabletop.init( { key: "1CvMr7Scpa4v38EAWSOwqPbs1hpcNCNvZ395jfRXOkCM",
                      callback: renderContent,
@@ -28,11 +50,44 @@ permalink: /
   function renderContent(data) {
     console.log(data);
 
-    /* Create HTML then populate it */
+    /* Create and populate the grid element profile names */
     for (i=0; i<data.length; i++) {
-      grid.innerHTML += '<li class="col-1 grid-item"><a href="#" class="url-' + i + '"><div class="circle"></div><h5 class="name-' + i +'"></h5></a></li>';
-      document.getElementsByClassName("name-" + i)[0].innerHTML = data[i]["Your Name"];
-      document.getElementsByClassName("url-" + i)[0].setAttribute("href", "{{ site.baseurl }}profile.html?name=" + encodeURI(data[i]["Your Name"]));
+      var profile     = data[i],
+          patternCode = profile["Pattern"].split(" ")[profile["Pattern"].split(" ").length - 1],
+          colorCode   = "x" + profile["Top Color"].substring(1,7);
+      grid.innerHTML += '<li class="col-1 grid-item '
+                      + patternCode
+                      + ' '
+                      + colorCode
+                      + '"><a href="{{ site.baseurl }}profile.html?name=' 
+                      + encodeURI(profile["Your Name"])
+                      + '"><div class="circle"></div><h5>'
+                      + profile["Your Name"]
+                      + '</h5></a></li>';
+
+      /* Create custom styles for every grid item (create duplicate styles) */
+      document.getElementById("styles").innerHTML += '.'
+                                                   + patternCode
+                                                   + '.'
+                                                   + colorCode
+                                                   + ' .circle:before{background:url('
+                                                   + patternDir[profile["Pattern"]]
+                                                   + colorName[profile["Top Color"]]
+                                                   + '.png);mix-blend-mode:multiply;}'
+
+                                                   + '.'
+                                                   + colorCode
+                                                   + ' a:hover,.'
+                                                   + colorCode
+                                                   + ' a:focus{color:'
+                                                   + profile["Top Color"]
+                                                   + ' ;}'
+
+                                                   + '.'
+                                                   + colorCode
+                                                   + ' a:focus .circle{box-shadow:0 0 0 6px '
+                                                   + profile["Top Color"]
+                                                   + ';}'
     }
   }
 </script>
