@@ -122,13 +122,18 @@ ol {
 .capital {
   text-transform:  uppercase;
 }
-/* Viewport based typography on phones and small tablets */
+/* Smaller header:body ratios on smaller screens */
+@include media-query($large) {
+  h1 {
+    font-size: 6em;
+  }
+}
 @include media-query($medium) {
   body {
-    font-size:     3vw;
+    // font-size:     3vw;
   }
   h1 {
-    font-size:     6em;
+    font-size:     4em;
   }
   h2 {
     font-size:     3em;
@@ -136,12 +141,15 @@ ol {
 }
 @include media-query($small) {
   body {
-    font-size:     4vw;
+    font-size:     $base-font-size * .75;
   }
   h1 {
-    font-size:     4em;
+    font-size:     3.5em;
   }
   h2 {
-    font-size:     3em;
+    font-size:     2em;
+  }
+  h3 {
+    font-size:     1.5em;
   }
 }
