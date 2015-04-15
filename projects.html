@@ -30,9 +30,12 @@ permalink: /projects/
 
     /* Create HTML then populate it */
     for (i=0; i<data.length; i++) {
-      projects.innerHTML += '<li><a href="#" class="project-' + i +'"></h4></a></li>';
-      document.getElementsByClassName("project-" + i)[0].innerHTML = data[i]["Project Name"];
-      document.getElementsByClassName("project-" + i)[0].setAttribute("href", "{{ site.baseurl }}project.html?pname=" + encodeURI(data[i]["Project Name"]));
+      projects.innerHTML += '<li><a href="'
+                          + '{{ site.baseurl }}project.html?pname='
+                          + encodeURI(data[i]["Project Name"])
+                          + '">'
+                          + data[i]["Project Name"]
+                          + '</h4></a></li>';
     }
   }
 </script>

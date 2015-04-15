@@ -14,40 +14,6 @@ layout: default
 
 <script src="{{ site.baseurl }}js/tabletop.js"></script>
 <script>
-  /* File definitions for patterns */
-  var patternDir = {
-    "All Falls Down":  "assets/patterns/All_Falls_Down/allFallsDown-",
-    "Modern Lumber":   "assets/patterns/Modern_Lumber/modernLumber-",
-    "Pixelated Heart": "assets/patterns/Pixelated_Heart/pixelatedHeart-",
-    "Space Invaders":  "assets/patterns/Space_Invaders/spaceInvaders-",
-    "The Notebook":    "assets/patterns/The_Notebook/theNotebook-",
-    "The Ziggy":       "assets/patterns/The_Ziggy/theZiggy-"
-  }, colorNames = {
-    "#FFDC00": "Yellow1",
-    "#FFF128": "Yellow2",
-    "#9C006F": "Purple1",
-    "#BB3181": "Purple2",
-    "#E01A21": "Orange1",
-    "#EF5A3F": "Orange2",
-    "#99C93B": "Green1",
-    "#C6DA5C": "Green2",
-    "#140857": "Blurple1",
-    "#3D377A": "Blurple2",
-    "#81C99B": "Aqua1",
-    "#B2DBBF": "Aqua2",
-    "#FFE2A4": "Cream1",
-    "#FFEDC4": "Cream2",
-    "#008789": "Teal1",
-    "#0099A4": "Teal2",
-    "#231F20": "Black1"
-  }
-
-  /* Fetch name parameter from the URL */
-  function getURLParameter(name) {
-    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
-  }
-  var pname = getURLParameter("pname");
-
   /* After loading, use Tabletop.js to fetch profile/project information then populate the HTML template with it */
   window.onload = function() { init() };
   function init() {
@@ -70,32 +36,59 @@ layout: default
     console.log(project);
 
     /* Populate HTML with certain mandatory Spreadsheet entries */
-    document.getElementById("pagesubtitle").innerHTML = '<a href="{{ site.baseurl }}profile.html?name=' + encodeURI(data[i]["Your Name"]) + '">' + project["Your Name"] + '</a>';
+    document.getElementById("pagesubtitle").innerHTML = '<a href="{{ site.baseurl }}profile.html?name='
+                                                      + encodeURI(data[i]["Your Name"])
+                                                      + '">'
+                                                      + project["Your Name"]
+                                                      + '</a>';
     document.getElementById("pagetitle").innerHTML    = project["Project Name"];
 
     /* Check for values in the Spreadsheet then populate the HTML with them */
     if (project["Project Location"]) {
-      meta.innerHTML += '<li>' + project["Project Location"] + '</li>';
+      meta.innerHTML += '<li>'
+                      + project["Project Location"]
+                      + '</li>';
     }
     if (project["Project Date"]) {
-      meta.innerHTML += '<li>' + project["Project Date"] + '</li>';
+      meta.innerHTML += '<li>'
+                      + project["Project Date"]
+                      + '</li>';
     }
     if (project["Project Website"]) {
-      meta.innerHTML += '<li><a href="' + project["Project Website"] + '">' + project["Your Website"].substr(7, project["Your Website"].length) + '</a></li>';
+      meta.innerHTML += '<li><a href="'
+                      + project["Project Website"]
+                      + '">'
+                      + project["Your Website"].substr(7, project["Your Website"].length)
+                      + '</a></li>';
     }
     if (project["Project Statement"]) {
       document.getElementsByClassName("statement")[0].innerHTML += project["Project Statement"];
     }
 
     /* Use the pattern file definitions to fetch the correct pattern and color variation for the given profile */
-    var pattern = patternDir[project["Pattern"]] + colorNames[project["Top Color"]];
+    var pattern = patternDir[project["Pattern"]]
+                + colorName[project["Top Color"]];
     /* Test the pattern... */
-    document.body.innerHTML += "<div style='background: url(" + pattern + ".png)," + project["Bottom Color"] + ";width:100vw;height:500px;'></div>";
+    document.body.innerHTML += '<div style="background: url('
+                             + pattern
+                             + '.png),'
+                             + project["Bottom Color"]
+                             + ';width:100vw;height:500px;"></div>';
 
     /* Use the given profile's color specifications to recolor certain elements */
-    document.body.innerHTML += "<style>h1 { color:" + project["Bottom Color"] + "; } h3, a, a:link, a:visited { color:" + project["Top Color"] + "; } h1 { border-color:" + project["Bottom Color"] + ";} a:focus { outline: .15em solid" + project["Top Color"] + "; }</style>";
+    document.body.innerHTML += '<style>h1 { color:'
+                             + project["Bottom Color"]
+                             + '; } h3, a, a:link, a:visited { color:'
+                             + project["Top Color"]
+                             + '; } h1 { border-color:'
+                             + project["Bottom Color"]
+                             + ';} a:focus { outline: .15em solid'
+                             + project["Top Color"]
+                             + '; }</style>';
   }
 </script>
+<!--    Page Specific Styles    -->
+<!-- MOVE TO HEAD IN PRODUCTION -->
 <style>
   body header.row {
     margin-bottom: 3rem;

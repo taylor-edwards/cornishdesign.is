@@ -3,7 +3,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% if page.title %}{{ page.title }}: {% endif %}{{ site.title }}</title>
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
   <link rel="stylesheet" href="{{ "css/main.css" | prepend: site.baseurl }}">
@@ -27,5 +27,42 @@
 
     ga('create', 'UA-59228240-3', 'auto');
     ga('send', 'pageview');
+
+    /* Fetch name parameter from the URL */
+    function getURLParameter(name) {
+      return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+    }
+    var name = getURLParameter("name");
+    var pname = getURLParameter("pname");
+
+    /*             File definitions for pattern files              */
+    /*             Queries are constructed as follows:             */
+    /* patternDir["Pattern Name"] + colorNames["Color Hex"] + .png */
+    var patternDir = {
+      "All Falls Down":  "assets/patterns/All_Falls_Down/allFallsDown-",
+      "Modern Lumber":   "assets/patterns/Modern_Lumber/modernLumber-",
+      "Pixulated Heart": "assets/patterns/Pixelated_Heart/pixelatedHeart-",
+      "Space Invaders":  "assets/patterns/Space_Invaders/spaceInvaders-",
+      "The Notebook":    "assets/patterns/The_Notebook/theNotebook-",
+      "The Ziggy":       "assets/patterns/The_Ziggy/theZiggy-"
+    }, colorName = {
+      "#FFDC00": "Yellow1",
+      "#FFF128": "Yellow2",
+      "#9C006F": "Purple1",
+      "#BB3181": "Purple2",
+      "#E01A21": "Orange1",
+      "#EF5A3F": "Orange2",
+      "#99C93B": "Green1",
+      "#C6DA5C": "Green2",
+      "#140857": "Blurple1",
+      "#3D377A": "Blurple2",
+      "#81C99B": "Aqua1",
+      "#B2DBBF": "Aqua2",
+      "#FFE2A4": "Cream1",
+      "#FFEDC4": "Cream2",
+      "#008789": "Teal1",
+      "#0099A4": "Teal2",
+      "#231F20": "Black1"
+    }
   </script>
 </head>
