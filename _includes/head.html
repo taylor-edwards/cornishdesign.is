@@ -6,11 +6,30 @@
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-  <link rel="stylesheet" href="{{ "css/main.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ 'css/main.css' | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
+  <link rel="apple-touch-icon" sizes="57x57" href="{{ 'favicons/apple-touch-icon-57x57.png' | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="60x60" href="{{ 'favicons/apple-touch-icon-60x60.png' | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{{ 'favicons/apple-touch-icon-72x72.png' | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ 'favicons/apple-touch-icon-76x76.png' | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{{ 'favicons/apple-touch-icon-114x114.png' | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="120x120" href="{{ 'favicons/apple-touch-icon-120x120.png' | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="144x144" href="{{ 'favicons/apple-touch-icon-144x144.png' | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="152x152" href="{{ 'favicons/apple-touch-icon-152x152.png' | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ 'favicons/apple-touch-icon-180x180.png' | prepend: site.baseurl }}">
+  <link rel="icon" type="image/png" href="{{ 'favicons/favicon-32x32.png' | prepend: site.baseurl }}" sizes="32x32">
+  <link rel="icon" type="image/png" href="{{ 'favicons/favicon-194x194.png' | prepend: site.baseurl }}" sizes="194x194">
+  <link rel="icon" type="image/png" href="{{ 'favicons/favicon-96x96.png' | prepend: site.baseurl }}" sizes="96x96">
+  <link rel="icon" type="image/png" href="{{ 'favicons/android-chrome-192x192.png' | prepend: site.baseurl }}" sizes="192x192">
+  <link rel="icon" type="image/png" href="{{ 'favicons/favicon-16x16.png' | prepend: site.baseurl }}" sizes="16x16">
+  <link rel="manifest" href="{{ 'favicons/manifest.json' | prepend: site.baseurl }}">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="{{ 'mstile-144x144.png' | prepend: site.baseurl }}">
+  <meta name="theme-color" content="#ffffff">
+
   <script>
-  /* Load Typekit Fonts */
+    /* Load Typekit Fonts */
     (function(d) {
       var config = {
         kitId: 'ryg2xvo',
@@ -19,14 +38,17 @@
       h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
     })(document);
 
-  /* Google Analytics */
+    /* Google Analytics */
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
     ga('create', 'UA-59228240-3', 'auto');
     ga('send', 'pageview');
+
+    /**********************/
+    /* Site functionality */
+    /**********************/
 
     /* Fetch name parameter from the URL */
     function getURLParameter(name) {
