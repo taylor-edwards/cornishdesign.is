@@ -4,6 +4,10 @@
  
 body {
   margin:               0;
+  text-align:           center; // center .row{inline-block}
+}
+main {
+  text-align:           left; // correct the inherited "center" value
 }
 img,
 svg {
