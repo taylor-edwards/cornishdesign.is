@@ -2,10 +2,6 @@
 /* View CSS guidelines in main.scss before editing */
 /***************************************************/
 
-body > header.row {
-  margin-top:             1.5em;
-  // margin-bottom:          3em;
-}
 header > nav[role="navigation"] {
   margin-bottom:          4.5em;
 }
@@ -70,6 +66,7 @@ body > footer.row {
 }
 .meta {
   display:                 inline-block;
+  margin:                  0;
 }
 .portrait-placeholder {
   background:              $black-90;
