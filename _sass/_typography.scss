@@ -48,9 +48,6 @@ h5 {
 }
 h1 {
   font-size:       8em;
-  line-height:     .8333;
-  margin-top:      0;
-  overflow:        hidden;
 }
 h2 {
   font-size:       4em;
@@ -65,6 +62,9 @@ h5 {
 }
 .pagetitle {
   border-bottom:   .075em solid $light-teal;
+  line-height:     .8333;
+  margin-top:      0;
+  overflow:        hidden;
 }
 p,
 ul,
