@@ -72,19 +72,22 @@ layout: default
     /* Use the pattern file definitions to fetch the correct pattern and color variation for the given profile */
     var pattern = patternDir[project["Pattern"]]
                 + colorName[project["Top Color"]];
-    /* Test the pattern... */
-    document.body.innerHTML += '<div style="background: url('
-                             + pattern
-                             + '.png),'
-                             + project["Bottom Color"]
-                             + ';width:100vw;height:10em;margin-top:-8em;background-blend-mode:multiply;""></div>';
+    /* Use the pattern! */
+    var patternFills = document.getElementsByClassName("pattern");
+    for (i=0; i<patternFills.length; i++) {
+      patternFills[i].setAttribute('style',  'background: url(' 
+                                           + pattern
+                                           + '.png),'
+                                           + project["Bottom Color"]
+                                           + ';');
+    }
 
     /* Use the given profile's color specifications to recolor certain elements */
-    document.body.innerHTML += '<style>h1 { color:'
+    document.body.innerHTML += '<style>h2 { color:'
                              + project["Bottom Color"]
                              + '; } h3, a, a:link, a:visited { color:'
                              + project["Top Color"]
-                             + '; } h1 { border-color:'
+                             + '; } h2 { border-color:'
                              + project["Bottom Color"]
                              + ';} a:focus { outline: .15em solid'
                              + project["Top Color"]

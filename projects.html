@@ -27,6 +27,20 @@ permalink: /projects/
                      simpleSheet: true,
                      orderby: "name",
                      reverse: true } );
+
+    /* Use the pattern! */
+    var patternFills = document.getElementsByClassName("pattern");
+    var pattern      = patternDir["Modern Lumber"]
+                     + colorName["#008789"];
+    var color        = "#f05b40";
+
+    for (i=0; i<patternFills.length; i++) {
+      patternFills[i].setAttribute('style',  'background: url(../' 
+                                           + pattern
+                                           + '.png),'
+                                           + color
+                                           + ';');
+    }
   }
 
   function renderContent(data) {
