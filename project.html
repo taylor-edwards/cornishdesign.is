@@ -77,7 +77,7 @@ layout: default
                              + pattern
                              + '.png),'
                              + project["Bottom Color"]
-                             + ';width:100vw;height:500px;"></div>';
+                             + ';width:100vw;height:10em;margin-top:-8em;background-blend-mode:multiply;""></div>';
 
     /* Use the given profile's color specifications to recolor certain elements */
     document.body.innerHTML += '<style>h1 { color:'
@@ -91,13 +91,3 @@ layout: default
                              + '; }</style>';
   }
 </script>
-<!--    Page Specific Styles    -->
-<!-- MOVE TO HEAD IN PRODUCTION -->
-<style>
-  body header.row {
-    margin-bottom: 3rem;
-  }
-  body header.row h1 {
-    margin-bottom: 0;
-  }
-</style>

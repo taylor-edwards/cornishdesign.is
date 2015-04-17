@@ -4,7 +4,7 @@
 
 body > header.row {
   margin-top:             1.5em;
-  margin-bottom:          3em;
+  // margin-bottom:          3em;
 }
 header > nav[role="navigation"] {
   margin-bottom:          4.5em;
@@ -13,8 +13,12 @@ body > footer.row {
   margin-top:             6em;
   margin-bottom:          1.5em;
   div {
-    border-top:           1px solid;
-    padding-top:          .75em;
+    -webkit-box-sizing:   content-box;
+    -moz-box-sizing:      content-box;
+    box-sizing:           content-box;
+    background:           #fff;
+    margin-left:          0;
+    padding:              1.5em 1.5em 0;
   }
 }
 .grid-item {
@@ -24,7 +28,7 @@ body > footer.row {
     // @include calc(margin-top, "50% - 1em");
     margin-top:           105%; /* IE8 fallback */
     @include calc(margin-top, "100% + .667em");
-    margin-bottom:        .667em;
+    margin-bottom:        1.5em;
   }
   a,
   a:link {
@@ -34,10 +38,6 @@ body > footer.row {
   }
   a:focus {
     outline:              none;
-    .circle {
-      box-shadow:         0 0 0 6px lighten($light-teal, 5%);
-      outline:            none;
-    }
   }
   a:hover:before {
     .circle {
