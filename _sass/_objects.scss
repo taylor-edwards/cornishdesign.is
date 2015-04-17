@@ -62,12 +62,26 @@ body > footer.row {
   position:                absolute;
   width:                   100%;
 }
+.contact,
+.project {
+  float: left;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+.project {
+  // text-align: right;
+}
 .portrait-placeholder {
   background:              $black-90;
   height:                  0;
-  padding-bottom:          200%;
+  padding-bottom:          160%;
   width:                   100%;
 }
-#pagesubtitle {
-  z-index: 100;
+@include media-query($large) {
+  .meta {
+    ul {
+      float:               none;
+      width:               96%
+    }
+  }
 }

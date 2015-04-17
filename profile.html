@@ -2,17 +2,21 @@
 layout: default
 ---
 
-<article>
-  <aside class="col-1">
-    <div class="portrait-placeholder"></div>
-    <ul class="contact">
-      <li class="name"></li>
 <div class="col-2">
   <div class="portrait-placeholder"></div>
 </div>
+<article class="col-3">
+  <header role="heading" class="col-5">
+    <h3 class="pagesubtitle">{{ page.subtitle }}</h3>
+    <h2 class="pagetitle">{{ page.title }}</h2>
+  </header>
+  <aside class="meta">
+    <ul class="contact preserve col-2"></ul>
+    <ul class="project col-2">
+      <li>View my project:</li>
     </ul>
   </aside>
-  <div class="col-2">
+  <div class="col-5">
     <p class="statement"></p>
   </div>
 </article>
@@ -38,6 +42,7 @@ layout: default
     }
     var profile = getObject("Your Name", name);
     var contact = document.getElementsByClassName("contact")[0];
+    var projectHTML = document.getElementsByClassName("project")[0];
     console.log(profile);
 
     /* Populate HTML with certain mandatory Spreadsheet entries */
@@ -53,10 +58,11 @@ layout: default
 
     /* Check for values in the Spreadsheet then populate the HTML with them */
     if (profile["Your Website"]) {
+      var websiteName = shortenURL(profile["Your Website"]);
       contact.innerHTML += '<li><a href="'
                          + profile["Your Website"]
                          + '">'
-                         + profile["Your Website"].substr(7, profile["Your Website"].length)
+                         + websiteName
                          + '</a></li>';
     }
     if (profile["Your Email"]) {
@@ -67,12 +73,12 @@ layout: default
                          + '</a></li>';
     }
     if (profile["Project Name"]) {
-      contact.innerHTML += '<li>My project: <a href="'
-                         + '{{ site.baseurl }}project.html?pname='
-                         + encodeURI(profile["Project Name"])
-                         + '">'
-                         + profile["Project Name"]
-                         + '</a></li>';
+      projectHTML.innerHTML += '<li><a href="'
+                             + '{{ site.baseurl }}project.html?pname='
+                             + encodeURI(profile["Project Name"])
+                             + '"><h4>'
+                             + profile["Project Name"]
+                             + '</h4></a></li>';
     }
     if (profile["Your Statement"]) {
       document.getElementsByClassName("statement")[0].innerHTML += profile["Your Statement"];
@@ -86,16 +92,16 @@ layout: default
                              + pattern
                              + '.png),'
                              + profile["Bottom Color"]
-                             + ';width:100vw;height:500px;""></div>';
+                             + ';width:100vw;height:10em;margin-top:-8em;background-blend-mode:multiply;""></div>';
 
     /* Use the given profile's color specifications to recolor certain elements */
-    document.body.innerHTML += '<style>h1{ color:'
+    document.body.innerHTML += '<style>h3{ color:'
                              + profile["Bottom Color"]
-                             + ';} h3, a, a:link, a:visited { color:'
+                             + ';} h2, a, a:link, a:visited { color:'
                              + profile["Top Color"]
-                             + ';} h1 { border-color:'
+                             + ';} h2 { border-color:'
                              + profile["Bottom Color"]
-                             + ';} a:focus { outline: .15em solid'
+                             + ' !important;} a:focus { outline: .15em solid'
                              + profile["Top Color"]
                              + ';}</style>';
   }
@@ -107,6 +113,4 @@ layout: default
     margin-bottom: 3rem;
   }
   body header.row h1 {
-    margin-bottom: 0;
-  }
-</style>
+</script>

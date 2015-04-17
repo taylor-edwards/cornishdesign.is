@@ -47,7 +47,6 @@ h5 {
   font-weight:     300;
 }
 h1 {
-  border-bottom:   .1em solid $light-teal;
   font-size:       8em;
   line-height:     .8333;
   margin-top:      0;
@@ -61,13 +60,19 @@ h3 {
 }
 h4,
 h5 {
-  font-size:       1.5em;
+  font-size:       1em;
   line-height:     1em;
+}
+.pagetitle {
+  border-bottom:   .075em solid $light-teal;
 }
 p,
 ul,
 ol {
   margin:          1.5em 0;
+}
+p {
+  max-width:       32em;
 }
 h1,
 h2,
@@ -121,6 +126,9 @@ ol {
 }
 .capital {
   text-transform:  uppercase;
+}
+.preserve {
+  white-space:     nowrap;
 }
 /* Smaller header:body ratios on smaller screens */
 @include media-query($large) {
