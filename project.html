@@ -62,7 +62,7 @@ layout: default
       meta.innerHTML += '<li><a href="'
                       + project["Project Website"]
                       + '">'
-                      + project["Your Website"].substr(7, project["Your Website"].length)
+                      + shortenURL(project["Project Website"])
                       + '</a></li>';
     }
     if (project["Project Statement"]) {

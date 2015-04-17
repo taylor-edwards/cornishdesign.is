@@ -13,7 +13,6 @@ layout: default
   <aside class="meta col-5">
     <ul class="contact preserve col-3"></ul>
     <ul class="project col-2">
-      <li>View my project:</li>
     </ul>
   </aside>
   <div class="col-5">
@@ -50,11 +49,6 @@ layout: default
     document.getElementsByClassName("pagetitle")[0].innerHTML    = profile["Your Name"];
  // document.getElementsByClassName("name")[0].innerHTML         = profile["Your Name"];
     document.getElementsByTagName("title")[0].innerHTML          = profile["Your Name"];
-
-    function shortenURL(url) {
-      if (url.indexOf("http://") == 0) return url.substr(7,url.length);
-      if (url.indexOf("https://") == 0) return url.substr(8,url.length);
-    }
 
     /* Check for values in the Spreadsheet then populate the HTML with them */
     if (profile["Your Website"]) {

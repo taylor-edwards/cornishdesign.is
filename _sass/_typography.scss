@@ -58,7 +58,11 @@ h3 {
 h4,
 h5 {
   font-size:       1em;
-  line-height:     1em;
+  letter-spacing:  .04em;
+  line-height:     1.5;
+}
+h4 {
+  margin-bottom:   0;
 }
 .pagetitle {
   border-bottom:   .075em solid $light-teal;
@@ -69,7 +73,7 @@ h5 {
 p,
 ul,
 ol {
-  margin:          1.5em 0;
+  margin:          0 0 1.5em;
 }
 p {
   max-width:       32em;
@@ -117,6 +121,11 @@ ul {
 ol {
   padding:         0;
 }
+li,
+li p {
+  margin-top:      0 !important;
+  margin-bottom:   0 !important;
+}
 .unlist li {
   float:           left;
   margin-right:    1.5rem;
@@ -129,6 +138,9 @@ ol {
 }
 .preserve {
   white-space:     nowrap;
+}
+.center {
+  text-align:      center;
 }
 /* Smaller header:body ratios on smaller screens */
 @include media-query($large) {

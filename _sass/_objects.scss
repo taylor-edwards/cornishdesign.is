@@ -8,7 +8,7 @@ header > nav[role="navigation"] {
 body > footer.row {
   margin-top:             6em;
   margin-bottom:          1.5em;
-  div {
+  article {
     -webkit-box-sizing:   content-box;
     -moz-box-sizing:      content-box;
     box-sizing:           content-box;
@@ -18,6 +18,8 @@ body > footer.row {
   }
 }
 .grid-item {
+  height:                 0;   // force aspect ratio
+  padding-bottom:         22%; // "                "
   text-align:             center;
   h5 {
     // margin-top:           30%; /* IE8 fallback */
@@ -80,5 +82,18 @@ body > footer.row {
       float:               none;
       width:               96%
     }
+  }
+  .grid-item {
+    padding-bottom:        26%;
+  }
+}
+@include media-query($medium) {
+  .grid-item {
+    padding-bottom:        46%;
+  }
+}
+@include media-query($small) {
+  .grid-item {
+    padding-bottom:        60%;
   }
 }

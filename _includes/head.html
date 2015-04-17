@@ -57,6 +57,11 @@
     var name = getURLParameter("name");
     var pname = getURLParameter("pname");
 
+    function shortenURL(url) {
+      if (url.indexOf("http://") == 0) return url.substr(7,url.length);
+      if (url.indexOf("https://") == 0) return url.substr(8,url.length);
+    }
+
     /*             File definitions for pattern files             */
     /*             Queries are constructed as follows:            */
     /* patternDir["Pattern Name"] + colorName["Color Hex"] + .png */
