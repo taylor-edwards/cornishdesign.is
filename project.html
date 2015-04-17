@@ -2,6 +2,10 @@
 layout: default
 ---
 
+<div role="heading" class="col-5">
+  <h3 class="pagesubtitle">{{ page.subtitle }}</h3>
+  <h2 class="pagetitle">{{ page.title }}</h1>
+</div>
 <article>
   <aside class="col-5">
     <ul class="meta">
@@ -36,12 +40,12 @@ layout: default
     console.log(project);
 
     /* Populate HTML with certain mandatory Spreadsheet entries */
-    document.getElementById("pagesubtitle").innerHTML = '<a href="{{ site.baseurl }}profile.html?name='
-                                                      + encodeURI(data[i]["Your Name"])
-                                                      + '">'
-                                                      + project["Your Name"]
-                                                      + '</a>';
-    document.getElementById("pagetitle").innerHTML    = project["Project Name"];
+    document.getElementsByClassName("pagesubtitle")[0].innerHTML = '<a href="{{ site.baseurl }}profile.html?name='
+                                                                 + encodeURI(data[i]["Your Name"])
+                                                                 + '">'
+                                                                 + project["Your Name"]
+                                                                 + '</a>';
+    document.getElementsByClassName("pagetitle")[0].innerHTML    = project["Project Name"];
 
     /* Check for values in the Spreadsheet then populate the HTML with them */
     if (project["Project Location"]) {

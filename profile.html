@@ -7,6 +7,9 @@ layout: default
     <div class="portrait-placeholder"></div>
     <ul class="contact">
       <li class="name"></li>
+<div class="col-2">
+  <div class="portrait-placeholder"></div>
+</div>
     </ul>
   </aside>
   <div class="col-2">
@@ -38,9 +41,15 @@ layout: default
     console.log(profile);
 
     /* Populate HTML with certain mandatory Spreadsheet entries */
-    document.getElementById("pagesubtitle").innerHTML    = profile["Your Degree"];
-    document.getElementById("pagetitle").innerHTML       = profile["Your Name"];
-    document.getElementsByClassName("name")[0].innerHTML = profile["Your Name"];
+    document.getElementsByClassName("pagesubtitle")[0].innerHTML = profile["Your Degree"];
+    document.getElementsByClassName("pagetitle")[0].innerHTML    = profile["Your Name"];
+ // document.getElementsByClassName("name")[0].innerHTML         = profile["Your Name"];
+    document.getElementsByTagName("title")[0].innerHTML          = profile["Your Name"];
+
+    function shortenURL(url) {
+      if (url.indexOf("http://") == 0) return url.substr(7,url.length);
+      if (url.indexOf("https://") == 0) return url.substr(8,url.length);
+    }
 
     /* Check for values in the Spreadsheet then populate the HTML with them */
     if (profile["Your Website"]) {
