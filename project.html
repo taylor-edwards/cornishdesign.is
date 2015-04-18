@@ -2,16 +2,16 @@
 layout: default
 ---
 
-<div role="heading" class="col-5">
-  <h3 class="pagesubtitle">{{ page.subtitle }}</h3>
-  <h2 class="pagetitle">{{ page.title }}</h1>
-</div>
-<article>
-  <aside class="col-5">
+<article class="col-5">
+  <header role="heading">
+    <h3 class="pagesubtitle">{{ page.subtitle }}</h3>
+    <h2 class="pagetitle">{{ page.title }}</h2>
+  </header>
+  <aside>
     <ul class="meta">
     </ul>
   </aside>
-  <div class="col-2">
+  <div>
     <p class="statement"></p>
   </div>
 </article>
@@ -90,7 +90,7 @@ layout: default
                              + '; } h3, a, a:link, a:visited { color:'
                              + project["Top Color"]
                              + '; } h2 { border-color:'
-                             + project["Bottom Color"]
+                             + project["Top Color"]
                              + ' !important;} a:focus { outline: .15em solid'
                              + project["Top Color"]
                              + '; }</style>';
