@@ -14,7 +14,8 @@ body > footer.row {
     box-sizing:           content-box;
     background:           #fff;
     margin-left:          0;
-    padding:              1.5em 1.5em 0;
+    margin-right:         0;
+    padding:              1.5em 2% 0;
   }
 }
 .pattern {
@@ -34,8 +35,7 @@ body > footer.row {
   padding-bottom:         22%; // "                "
   text-align:             center;
   h5 {
-    // margin-top:           30%; /* IE8 fallback */
-    // @include calc(margin-top, "50% - 1em");
+    line-height:          1;
     margin-top:           105%; /* IE8 fallback */
     @include calc(margin-top, "100% + .667em");
     margin-bottom:        1.5em;
@@ -106,6 +106,6 @@ body > footer.row {
 }
 @include media-query($small) {
   .grid-item {
-    padding-bottom:        60%;
+    padding-bottom:        62%;
   }
 }
