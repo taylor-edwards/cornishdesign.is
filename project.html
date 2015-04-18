@@ -54,8 +54,15 @@ layout: default
                       + '</li>';
     }
     if (project["Project Date"]) {
+      var date = new Date(project["Project Date"]);
+      var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
       meta.innerHTML += '<li>'
-                      + project["Project Date"]
+                      + date.getDate()
+                      + ' '
+                      + months[date.getMonth()]
+                      + ' '
+                      + date.getFullYear()
                       + '</li>';
     }
     if (project["Project Website"]) {
