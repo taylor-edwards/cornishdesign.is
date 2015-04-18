@@ -10,6 +10,9 @@ main,
 .row {
   text-align:           left; // correct the inherited "center" value
 }
+main {
+  min-height:           54vh; // keep footer at bottom of page
+}
 img,
 svg {
   max-width:            100%;
@@ -62,7 +65,8 @@ svg {
   }
   .col-2,
   .col-3 {
-    width:              61.666%;
+    // width:              61.666%;
+    width:              96%;
   }
   .col-4,
   .col-5 {
