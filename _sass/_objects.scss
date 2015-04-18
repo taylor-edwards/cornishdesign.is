@@ -6,8 +6,7 @@ header > nav[role="navigation"] {
   margin-bottom:          4.5em;
 }
 body > footer.row {
-  margin-top:             6em;
-  margin-bottom:          1.5em;
+  margin:                 6em auto 1.5em;
   article {
     -webkit-box-sizing:   content-box;
     -moz-box-sizing:      content-box;
@@ -81,6 +80,10 @@ body > footer.row {
 .meta {
   display:                 inline-block;
   margin:                  0;
+  width:                   100%;
+  ul {
+    width:                 50%;
+  }
 }
 .portrait-placeholder {
   background:              $black-90;
