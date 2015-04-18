@@ -9,10 +9,7 @@ permalink: /projects/
   <h3 class="pagesubtitle">{{ page.subtitle }}</h3>
   <h1 class="pagetitle">{{ page.title }}</h1>
 </div>
-<article class="col-5">
-  <h3>Project Directory</h3>
-  <ul id="projects">
-  </ul>
+<article class="col-5" id="projects">
 </article>
 
 <script src="{{ site.baseurl }}js/tabletop.js"></script>
@@ -44,16 +41,39 @@ permalink: /projects/
   }
 
   function renderContent(data) {
-    console.log(data);
-
-    /* Create HTML then populate it */
+    // Create two empty arrays and fill one
+    // with all projects and the other with
+    // one copy of each project category
+    var projectsArray     = [];
+    var projectCategories = [];
     for (i=0; i<data.length; i++) {
-      projects.innerHTML += '<li><a href="'
-                          + '{{ site.baseurl }}project.html?pname='
-                          + encodeURI(data[i]["Project Name"])
-                          + '">'
-                          + data[i]["Project Name"]
-                          + '</h4></a></li>';
+      projectsArray.push(data[i]);
+      if (projectCategories.indexOf(data[i]["Project Category"]) == -1) {
+        projectCategories.push(data[i]["Project Category"]);
+      }
+    }
+
+    // For each project category, create
+    // a category ul and title and search
+    // the first array for projects with
+    // a matching category, then add a
+    // list item with that project
+    for (i=0; i<projectCategories.length; i++) {
+      var content = "";
+      if (i > 1) content += '</ul>';
+      content += '<ul class="col-1"><li><h4>'
+               + projectCategories[i]
+               + '</h4></li>';
+      for (j=0; j<projectsArray.length; j++) {
+        if (projectsArray[j]["Project Category"] == projectCategories[i]) {
+          content += '<li><a href="{{ site.baseurl }}project.html?pname='
+                   + encodeURI(projectsArray[j])
+                   + '">'
+                   + projectsArray[j]["Project Name"]
+                   + '</a></li>';
+        }
+      }
+      projects.innerHTML += content;
     }
   }
 </script>
