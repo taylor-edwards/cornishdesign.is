@@ -75,7 +75,9 @@ layout: default
                              + '</h4></a></li>';
     }
     if (profile["Your Statement"]) {
-      document.getElementsByClassName("statement")[0].innerHTML += profile["Your Statement"];
+      document.getElementsByClassName("statement")[0].innerHTML += '<p>'
+                                                                 + profile["Your Statement"].escapeSpecialChars();
+                                                                 + '</p>';
     }
 
     /* Use the pattern file definitions to fetch the correct pattern and color variation for the given profile */

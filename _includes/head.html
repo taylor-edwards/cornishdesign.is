@@ -62,6 +62,21 @@
       if (url.indexOf("https://") == 0) return url.substr(8,url.length);
     }
 
+    /* Replace newline characters with new paragraphs */
+    // String.prototype.escapeSpecialChars = function() {
+    // return this.replace(/\\n/g, "\\n")
+    //            .replace(/\\'/g, "\\'")
+    //            .replace(/\\"/g, '\\"')
+    //            .replace(/\\&/g, "\\&")
+    //            .replace(/\\r/g, "\\r")
+    //            .replace(/\\t/g, "\\t")
+    //            .replace(/\\b/g, "\\b")
+    //            .replace(/\\f/g, "\\f");
+    // };
+    String.prototype.escapeSpecialChars = function() {
+      return this.replace(/\n/g, "</p><p>");
+    };
+
     /*             File definitions for pattern files             */
     /*             Queries are constructed as follows:            */
     /* patternDir["Pattern Name"] + colorName["Color Hex"] + .png */
