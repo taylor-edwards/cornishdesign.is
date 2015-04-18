@@ -67,7 +67,7 @@ permalink: /projects/
       for (j=0; j<projectsArray.length; j++) {
         if (projectsArray[j]["Project Category"] == projectCategories[i]) {
           content += '<li><a href="{{ site.baseurl }}project.html?pname='
-                   + encodeURI(projectsArray[j])
+                   + encodeURIComponent(projectsArray[j]["Project Name"])
                    + '">'
                    + projectsArray[j]["Project Name"]
                    + '</a></li>';

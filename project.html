@@ -41,7 +41,7 @@ layout: default
 
     /* Populate HTML with certain mandatory Spreadsheet entries */
     document.getElementsByClassName("pagesubtitle")[0].innerHTML = '<a href="{{ site.baseurl }}profile.html?name='
-                                                                 + encodeURI(data[i]["Your Name"])
+                                                                 + encodeURIComponent(project["Your Name"])
                                                                  + '">'
                                                                  + project["Your Name"]
                                                                  + '</a>';

@@ -90,7 +90,7 @@ permalink: /
                       + ' '
                       + colorCode
                       + '"><a href="{{ site.baseurl }}profile.html?name=' 
-                      + encodeURI(profile["Your Name"])
+                      + encodeURIComponent(profile["Your Name"])
                       + '"><div class="circle"></div><h5>'
                       + profile["Your Name"]
                       + '</h5></a></li>';
