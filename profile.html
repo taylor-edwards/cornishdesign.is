@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="col-2">
-  <div class="portrait-placeholder"></div>
+  <div class="portrait-wrapper"></div>
 </div>
 <article class="col-3">
   <header role="heading">
@@ -42,6 +42,7 @@ layout: default
     var profile = getObject("Your Name", name);
     var contact = document.getElementsByClassName("contact")[0];
     var projectHTML = document.getElementsByClassName("project")[0];
+    var statementHTML = document.getElementsByClassName("statement")[0];
     console.log(profile);
 
     /* Populate HTML with certain mandatory Spreadsheet entries */
@@ -66,19 +67,28 @@ layout: default
                          + profile["Your Email"]
                          + '</a></li>';
     }
-    if (profile["Project Name"]) {
-      projectHTML.innerHTML += '<li><a href="'
-                             + '{{ site.baseurl }}project.html?pname='
-                             + encodeURIComponent(profile["Project Name"])
-                             + '"><h4>'
-                             + profile["Project Name"]
-                             + '</h4></a></li>';
-    }
     if (profile["Your Statement"]) {
-      document.getElementsByClassName("statement")[0].innerHTML += '<p>'
-                                                                 + profile["Your Statement"].escapeSpecialChars();
-                                                                 + '</p>';
+      statementHTML.innerHTML += '<p>'
+                               + profile["Your Statement"].escapeSpecialChars();
+                               + '</p>';
     }
+    if (profile["Project Name"]) {
+      projectHTML.innerHTML   += '<li><a href="'
+                               + '{{ site.baseurl }}project.html?pname='
+                               + encodeURIComponent(profile["Project Name"])
+                               + '"><h4>'
+                               + profile["Project Name"]
+                               + '</h4></a></li>';
+      statementHTML.innerHTML += '<br><p><a href="'
+                               + encodeURIComponent(profile["Project Name"])
+                               + '">View my project:<br><strong>'
+                               + profile["Project Name"]
+                               + '</strong></a></p>';
+    }
+
+    document.getElementsByClassName("portrait-wrapper")[0].innerHTML += '<img src="{{ "assets/portraits/3x5/" | prepend: site.baseurl }}'
+                                                                          + profile["Your Name"]
+                                                                          + '.png">'
 
     /* Use the pattern file definitions to fetch the correct pattern and color variation for the given profile */
     var pattern = patternDir[profile["Pattern"]]

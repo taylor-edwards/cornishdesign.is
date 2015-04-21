@@ -88,9 +88,9 @@ header {
     width:                 50%;
   }
 }
-.portrait-placeholder {
-  background:              $black-90;
+.portrait-wrapper {
   height:                  0;
+  overflow:                hidden;
   padding-bottom:          160%;
   width:                   100%;
 }
@@ -108,6 +108,10 @@ header {
 @include media-query($medium) {
   .grid-item {
     padding-bottom:        46%;
+  }
+  .portrait-wrapper {
+    margin-top:            -4em;
+    padding-bottom:        100%;
   }
 }
 @include media-query($small) {

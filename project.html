@@ -46,6 +46,7 @@ layout: default
                                                                  + project["Your Name"]
                                                                  + '</a>';
     document.getElementsByClassName("pagetitle")[0].innerHTML    = project["Project Name"];
+    document.getElementsByTagName("title")[0].innerHTML          = project["Project Name"];
 
     /* Check for values in the Spreadsheet then populate the HTML with them */
     if (project["Project Location"]) {
