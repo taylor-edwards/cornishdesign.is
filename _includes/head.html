@@ -76,9 +76,12 @@
     //            .replace(/\\b/g, "\\b")
     //            .replace(/\\f/g, "\\f");
     // };
-    String.prototype.escapeSpecialChars = function() {
+    String.prototype.escapeParagraphs = function() {
       return this.replace(/\n/g, "</p><p>");
-    };
+    }
+    String.prototype.escapeSpaces = function() {
+      return this.replace(/\s/g, "_");
+    }
 
     /*             File definitions for pattern files             */
     /*             Queries are constructed as follows:            */

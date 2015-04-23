@@ -75,7 +75,7 @@ layout: default
     }
     if (project["Project Statement"]) {
       document.getElementsByClassName("statement")[0].innerHTML += '<p>'
-                                                                 + project["Project Statement"].escapeSpecialChars();
+                                                                 + project["Project Statement"].escapeParagraphs();
                                                                  + '</p>';
     }
 
