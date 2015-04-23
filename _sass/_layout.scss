@@ -1,0 +1,87 @@
+/***************************************************/
+/* View CSS guidelines in main.scss before editing */
+/***************************************************/
+ 
+body {
+  margin:               1.5em 0 0;
+  text-align:           center; // center .row{inline-block}
+}
+main,
+.row {
+  text-align:           left; // correct the inherited "center" value
+}
+main {
+  min-height:           54vh; // keep footer at bottom of page
+}
+img,
+svg {
+  max-width:            100%;
+}
+.row {
+  -webkit-box-sizing:   border-box;
+  -moz-box-sizing:      border-box;
+  box-sizing:           border-box;
+  clear:                both;
+  display:              inline-block;
+  float:                none;
+  margin:               0 auto;
+  width:                100%;
+  max-width:            $x-large;
+}
+/* 5 columns wide on $large and larger */
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5 {
+  -webkit-box-sizing:   border-box;
+  -moz-box-sizing:      border-box;
+  box-sizing:           border-box;
+  display:              block;
+  float:                left;
+  margin:               0 2% 1.5rem;
+  position:             relative;
+  vertical-align:       top;
+}
+.col-1 {
+  width:                16%;
+}
+.col-2 {
+  width:                36%;
+}
+.col-3 {
+  width:                56%;
+}
+.col-4 {
+  width:                76%;
+}
+.col-5 {
+  width:                96%;
+}
+/* 3 columns wide on $small through $medium*/
+@include media-query($medium) {
+  .col-1 {
+    width:              29.333%;
+  }
+  .col-2,
+  .col-3 {
+    // width:              61.666%;
+    width:              96%;
+  }
+  .col-4,
+  .col-5 {
+    width:              96%;
+  }
+}
+/* 2 columns wide on anything smaller */
+@include media-query($small) {
+  .col-1 {
+    width:             46%;
+  }
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5 {
+    width:             96%;
+  }
+}

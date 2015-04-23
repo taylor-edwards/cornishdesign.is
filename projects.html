@@ -1,0 +1,79 @@
+---
+layout: default
+subtitle: "Cornish Expo:"
+title: Projects
+permalink: /projects/
+---
+
+<article role="heading" class="col-5">
+  <h3 class="pagesubtitle">{{ page.subtitle }}</h3>
+  <h1 class="pagetitle">{{ page.title }}</h1>
+</article>
+<article id="projects">
+</article>
+
+<script src="{{ site.baseurl }}js/tabletop.js"></script>
+<script>
+  var projects = document.getElementById("projects");
+
+  window.onload = function() { init() };
+
+  function init() {
+    Tabletop.init( { key: "1CvMr7Scpa4v38EAWSOwqPbs1hpcNCNvZ395jfRXOkCM",
+                     callback: renderContent,
+                     simpleSheet: true,
+                     orderby: "name",
+                     reverse: true } );
+
+    /* Use the pattern! */
+    var patternFills = document.getElementsByClassName("pattern");
+    var pattern      = patternDir["Modern Lumber"]
+                     + colorName["#008789"];
+    var color        = "#f05b40";
+
+    for (i=0; i<patternFills.length; i++) {
+      patternFills[i].setAttribute('style',  'background: url(../' 
+                                           + pattern
+                                           + '.png),'
+                                           + color
+                                           + ';');
+    }
+  }
+
+  function renderContent(data) {
+    // Create two empty arrays and fill one
+    // with all projects and the other with
+    // one copy of each project category
+    var projectsArray     = [];
+    var projectCategories = [];
+    for (i=0; i<data.length; i++) {
+      projectsArray.push(data[i]);
+      if (projectCategories.indexOf(data[i]["Project Category"]) == -1) {
+        projectCategories.push(data[i]["Project Category"]);
+      }
+    }
+
+    // For each project category, create
+    // a category ul and title and search
+    // the first array for projects with
+    // a matching category, then add a
+    // list item with that project
+    for (i=0; i<projectCategories.length; i++) {
+      var content = "";
+      if (i > 1) content += '</ul>';
+      content += '<ul class="col-1"><li><h4>'
+               + projectCategories[i]
+               + '</h4></li>';
+      for (j=0; j<projectsArray.length; j++) {
+        if (projectsArray[j]["Project Category"] == projectCategories[i]) {
+          content += '<li><a href="{{ site.baseurl }}project.html?pname='
+                   + encodeURIComponent(projectsArray[j]["Project Name"])
+                   + '">'
+                   + projectsArray[j]["Project Name"]
+                   + '</a></li>';
+        }
+      }
+      projects.innerHTML += content;
+    }
+  }
+</script>
