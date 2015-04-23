@@ -103,7 +103,7 @@ a:link {
 a:active,
 a:focus,
 a:hover {
-  color:           $light-red !important;
+  color:           $light-red;
 }
 a:visited {
   color:           desaturate(lighten($teal, 25%), 50%);
