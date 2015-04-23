@@ -1,0 +1,123 @@
+---
+layout: default
+---
+
+<div class="col-2">
+  <div class="portrait-wrapper"></div>
+</div>
+<article class="col-3">
+  <header role="heading">
+    <h3 class="pagesubtitle">&nbsp;</h3>
+    <h2 class="pagetitle">&nbsp;</h2>
+  </header>
+  <aside class="meta col-5">
+    <ul class="contact preserve"></ul>
+    <ul class="project">
+    </ul>
+  </aside>
+  <div>
+    <p class="statement"></p>
+  </div>
+</article>
+
+<script src="{{ site.baseurl }}js/tabletop.js"></script>
+<script>
+  /* After loading, use Tabletop.js to fetch profile/project information then populate the HTML template with it */
+  window.onload = function() { init() };
+  function init() {
+    Tabletop.init( { key: "1CvMr7Scpa4v38EAWSOwqPbs1hpcNCNvZ395jfRXOkCM",
+                     callback: renderContent,
+                     simpleSheet: true,
+                     orderby: "name",
+                     reverse: true } );
+  }
+
+  function renderContent(data) {
+    /* Find specific profile within the Spreadsheet according to name */
+    function getObject(property, value) {
+      for (i=0; i<data.length; i++) {
+        if (data[i][property] == value) return data[i];
+      }
+    }
+    var profile = getObject("Your Name", name);
+    var contact = document.getElementsByClassName("contact")[0];
+    var projectHTML = document.getElementsByClassName("project")[0];
+    var statementHTML = document.getElementsByClassName("statement")[0];
+    console.log(profile);
+
+    /* Populate HTML with certain mandatory Spreadsheet entries */
+    document.getElementsByClassName("pagesubtitle")[0].innerHTML = profile["Your Degree"];
+    document.getElementsByClassName("pagetitle")[0].innerHTML    = profile["Your Name"];
+ // document.getElementsByClassName("name")[0].innerHTML         = profile["Your Name"];
+    document.getElementsByTagName("title")[0].innerHTML          = profile["Your Name"];
+
+    /* Check for values in the Spreadsheet then populate the HTML with them */
+    if (profile["Your Website"]) {
+      var websiteName = shortenURL(profile["Your Website"]);
+      contact.innerHTML += '<li><a href="'
+                         + profile["Your Website"]
+                         + '">'
+                         + websiteName
+                         + '</a></li>';
+    }
+    if (profile["Your Email"]) {
+      contact.innerHTML += '<li><a href="mailto:'
+                         + profile["Your Email"]
+                         + '">'
+                         + profile["Your Email"]
+                         + '</a></li>';
+    }
+    if (profile["Your Statement"]) {
+      statementHTML.innerHTML += '<p>'
+                               + profile["Your Statement"].escapeParagraphs();
+                               + '</p>';
+    }
+    if (profile["Project Name"]) {
+      projectHTML.innerHTML   += '<li><a href="{{ site.baseurl }}project.html?pname='
+                               + encodeURIComponent(profile["Project Name"])
+                               + '"><h4>'
+                               + profile["Project Name"]
+                               + '</h4></a></li>';
+      statementHTML.innerHTML += '<br><p><a href="{{ site.baseurl }}project.html?pname='
+                               + encodeURIComponent(profile["Project Name"])
+                               + '">View my project:<br><strong>'
+                               + profile["Project Name"]
+                               + '</strong></a></p>';
+    }
+
+    /* If there's a portrait available, use it. Otherwise, hide the container entirely */
+    if (profile["Image"] == "TRUE") {
+      document.getElementsByClassName("portrait-wrapper")[0].innerHTML += '<img src="{{ "assets/portraits/3x5/" | prepend: site.baseurl }}'
+                                                                        + profile["Your Name"].escapeSpaces()
+                                                                        + '.jpg">'
+    } else {
+      document.getElementsByClassName("portrait-wrapper")[0].parentNode.setAttribute("style","display:none;");
+    }
+
+    /* Use the pattern file definitions to fetch the correct pattern and color variation for the given profile */
+    var pattern = patternDir[profile["Pattern"]]
+                + colorName[profile["Top Color"]];
+    /* Use the pattern! */
+    var patternFills = document.getElementsByClassName("pattern");
+    for (i=0; i<patternFills.length; i++) {
+      patternFills[i].setAttribute('style',  'background: url(' 
+                                           + pattern
+                                           + '.png),'
+                                           + profile["Bottom Color"]
+                                           + ';');
+    }
+
+    /* Use the given profile's color specifications to recolor certain elements */
+    document.body.innerHTML += '<style>h2{ color:'
+                             + profile["Bottom Color"]
+                             + ';}h3,a,a:link,a:visited{ color:'
+                             + profile["Top Color"]
+                             + ';} h2 { border-color:'
+                             + profile["Top Color"]
+                             + ' !important;}a:focus{ outline: .15em solid'
+                             + profile["Top Color"]
+                             + ';}a:hover,a:focus,a:active{color:'
+                             + profile["Bottom Color"]
+                             + ' !important;}</style>';
+  }
+</script>

@@ -2,8 +2,9 @@
 <html>
   {% include head.html %}
   <body>
-    {% include header.html %}
-    <main>{{ content }}</main>
-    {% include footer.html %}
+    <header class="row">{% include header.html %}</header>
+    <main class="row" role="content">{{ content }}</main>
+    <footer class="row">{% include footer.html %}</footer>
+    <div class="pattern"></div>
   </body>
 </html>

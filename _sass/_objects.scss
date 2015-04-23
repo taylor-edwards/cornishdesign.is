@@ -1,0 +1,115 @@
+/***************************************************/
+/* View CSS guidelines in main.scss before editing */
+/***************************************************/
+
+header > nav[role="navigation"] {
+  margin-bottom:          4.5em;
+}
+body > footer.row {
+  margin:                 6em auto 1.5em;
+  article {
+    -webkit-box-sizing:   content-box;
+    -moz-box-sizing:      content-box;
+    box-sizing:           content-box;
+    background:           #fff;
+    margin-left:          0;
+    margin-right:         0;
+    padding:              1.5em 2% 0;
+  }
+}
+header {
+  margin-bottom:         0 !important;
+}
+.pattern {
+  background-blend-mode: multiply;
+  height:                11em;
+  margin-top:            -11em;
+  width:                 100vw;
+  z-index:               1;
+}
+.designers {
+  margin-top:            6em;
+}
+.grid {
+  margin-top:            1.5em;
+}
+.grid-item {
+  height:                0;   // force aspect ratio
+  padding-bottom:        22%; // "                "
+  text-align:            center;
+  h5 {
+    line-height:         1;
+    margin-top:          105%; /* IE8 fallback */
+    @include calc(margin-top, "100% + .667em");
+    margin-bottom:       1.5em;
+  }
+  a,
+  a:link {
+    margin:              0;
+    padding:             0;
+    width:               100%;
+  }
+  a:focus {
+    outline:             none;
+  }
+}
+.circle {
+  border-radius:          50%;
+  display:                block;
+  height:                 0;
+  overflow:               hidden;
+  padding-bottom:         100%;
+  position:               absolute;
+  width:                  100%;
+}
+.grey {
+  background:             #eee;
+  height:                 100%;
+  position:               absolute;
+  width:                  100%;
+}
+.contact,
+.project {
+  float:                  left;
+  margin-top:             0;
+  margin-bottom:          1.5em;
+}
+.meta {
+  display:                inline-block;
+  margin:                 0;
+  width:                  100%;
+  ul {
+    width:                50%;
+  }
+}
+.portrait-wrapper {
+  height:                 0;
+  overflow:               hidden;
+  padding-bottom:         160%;
+  width:                  100%;
+}
+@include media-query($large) {
+  .meta {
+    ul {
+      float:              none;
+      width:              96%
+    }
+  }
+  .grid-item {
+    padding-bottom:       26%;
+  }
+}
+@include media-query($medium) {
+  .grid-item {
+    padding-bottom:       46%;
+  }
+  .portrait-wrapper {
+    margin-top:           -4em;
+    padding-bottom:       100%;
+  }
+}
+@include media-query($small) {
+  .grid-item {
+    padding-bottom:       62%;
+  }
+}

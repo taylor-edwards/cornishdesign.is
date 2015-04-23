@@ -1,0 +1,108 @@
+---
+layout: default
+---
+
+<article class="col-5">
+  <header role="heading">
+    <h3 class="pagesubtitle">{{ page.subtitle }}</h3>
+    <h2 class="pagetitle">{{ page.title }}</h2>
+  </header>
+  <aside>
+    <ul class="meta">
+    </ul>
+  </aside>
+  <div>
+    <p class="statement"></p>
+  </div>
+</article>
+
+<script src="{{ site.baseurl }}js/tabletop.js"></script>
+<script>
+  /* After loading, use Tabletop.js to fetch profile/project information then populate the HTML template with it */
+  window.onload = function() { init() };
+  function init() {
+    Tabletop.init( { key: "1CvMr7Scpa4v38EAWSOwqPbs1hpcNCNvZ395jfRXOkCM",
+                     callback: renderContent,
+                     simpleSheet: true,
+                     orderby: "name",
+                     reverse: true } );
+  }
+
+  function renderContent(data) {
+    /* Find specific profile within the Spreadsheet according to name */
+    function getObject(property, value) {
+      for (i=0; i<data.length; i++) {
+        if (data[i][property] == value) return data[i];
+      }
+    }
+    var project = getObject("Project Name", pname);
+    var meta    = document.getElementsByClassName("meta")[0];
+    console.log(project);
+
+    /* Populate HTML with certain mandatory Spreadsheet entries */
+    document.getElementsByClassName("pagesubtitle")[0].innerHTML = '<a href="{{ site.baseurl }}profile.html?name='
+                                                                 + encodeURIComponent(project["Your Name"])
+                                                                 + '">'
+                                                                 + project["Your Name"]
+                                                                 + '</a>';
+    document.getElementsByClassName("pagetitle")[0].innerHTML    = project["Project Name"];
+    document.getElementsByTagName("title")[0].innerHTML          = project["Project Name"];
+
+    /* Check for values in the Spreadsheet then populate the HTML with them */
+    if (project["Project Location"]) {
+      meta.innerHTML += '<li>'
+                      + project["Project Location"]
+                      + '</li>';
+    }
+    if (project["Project Date"]) {
+      var date = new Date(project["Project Date"]);
+      var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+      meta.innerHTML += '<li>'
+                      + date.getDate()
+                      + ' '
+                      + months[date.getMonth()]
+                      + ' '
+                      + date.getFullYear()
+                      + '</li>';
+    }
+    if (project["Project Website"]) {
+      meta.innerHTML += '<li><a href="'
+                      + project["Project Website"]
+                      + '">'
+                      + shortenURL(project["Project Website"])
+                      + '</a></li>';
+    }
+    if (project["Project Statement"]) {
+      document.getElementsByClassName("statement")[0].innerHTML += '<p>'
+                                                                 + project["Project Statement"].escapeParagraphs();
+                                                                 + '</p>';
+    }
+
+    /* Use the pattern file definitions to fetch the correct pattern and color variation for the given profile */
+    var pattern = patternDir[project["Pattern"]]
+                + colorName[project["Top Color"]];
+    /* Use the pattern! */
+    var patternFills = document.getElementsByClassName("pattern");
+    for (i=0; i<patternFills.length; i++) {
+      patternFills[i].setAttribute('style',  'background: url(' 
+                                           + pattern
+                                           + '.png),'
+                                           + project["Bottom Color"]
+                                           + ';');
+    }
+
+    /* Use the given profile's color specifications to recolor certain elements */
+    document.body.innerHTML += '<style>h2 { color:'
+                             + project["Bottom Color"]
+                             + '; }h3,a,a:link,a:visited{ color:'
+                             + project["Top Color"]
+                             + '; } h2 { border-color:'
+                             + project["Top Color"]
+                             + ' !important;} a:focus { outline: .15em solid'
+                             + project["Top Color"]
+                             + ';}a:hover,a:focus,a:active{color:'
+                             + project["Bottom Color"]
+                             + ';}</style>';
+  }
+</script>

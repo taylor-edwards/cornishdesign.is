@@ -1,0 +1,57 @@
+---
+layout: default
+subtitle: "Cornish Expo:"
+title: "Design 2015"
+permalink: /about/
+---
+
+<header role="heading" class="col-5">
+  <h3 class="pagesubtitle">{{ page.subtitle }}</h3>
+  <h1 class="pagetitle">{{ page.title }}</h1>
+</header>
+<aside class="col-2">
+  <img src="../assets/map-large.png">
+  <ul>
+    <li class="col-3">
+      <h4>8 May 2015</h4>
+      <p>Opening Reception 5 - 8pm</p>
+    </li>
+    <li class="col-2">
+      <p><a href="https://goo.gl/maps/K3SDn" title="Get directions here on Google Maps">Beebe Building<br>2014 9th Avenue<br>Seattle 98121</a></p>
+    </li>
+    <li class="col-5">&nbsp;<br></li>
+    <li class="col-3">
+      <h4>9 May - 17 May</h4>
+      <p>Weekdays 2 - 7pm</p>
+      <p>Weekends 12 - 5pm</p>
+    </li>
+    <li class="col-2">
+      <p>Get directions on <a href="https://goo.gl/maps/K3SDn" title="View on Google Maps">Google Maps</a></p>
+    </li>
+  </ul>
+</aside>
+<article class="col-2">
+  <p>From one design program, 54 vastly different creatives have emerged. Each completely unique — but connected — we are the graduating class of 2015.</p>
+  <p>We, as students, are individuals; we are not any one thing. We are varied in our interests and the ways we choose to express them. While at Cornish, we have each developed our unique interests and pursuits, yet we are a collaborative; all the richer for our variety. Growing together has challenged our beliefs and pushed our abilities. Our creative context is an environment of fellow thinkers: peers, faculty, artists, professionals — in this system we have matured into the deeply conceptual thinkers we are today. Our skills extend beyond the surface, to the form, substance, meaning, and purpose of the designed object.</p>
+  <p>Now we present our capstone projects; complex and unique. Each shares the backbone of rich thought and well formed concept, but is diversified by distinct form and content. Graphic, illustrative, formal, expressive; our work is supported by strong ideas and unique creative vision. This show is the manifestation of a diverse group of thinkers, creators and artists.</p>
+  <p>This show is us.</p>
+</article>
+<script>
+  window.onload = function() { init() };
+
+  function init() {
+    /* Use the pattern! */
+    var patternFills = document.getElementsByClassName("pattern");
+    var pattern      = patternDir["The Ziggy"]
+                     + colorName["#008789"];
+    var color        = "#f05b40";
+
+    for (i=0; i<patternFills.length; i++) {
+      patternFills[i].setAttribute('style',  'background: url(../' 
+                                           + pattern
+                                           + '.png),'
+                                           + color
+                                           + ';');
+    }
+  }
+</script>

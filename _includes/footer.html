@@ -1,0 +1,13 @@
+<article class="col-2">
+{% if site.copyright %}
+  <p>{{ site.copyright }}</p>
+{% endif %}
+  <ul>
+  {% if site.parent %}
+    <li><a href="{{ site.parentURL }}">{{ site.parent }}</a></li>
+  {% endif %}
+  {% if site.github %}
+    <li><a href="{{ site.github }}">{{ site.title }} on Github</a></li>
+  {% endif %}
+  </ul>
+</article>
