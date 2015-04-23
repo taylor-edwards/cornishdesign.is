@@ -94,10 +94,7 @@ ol {
 }
 a,
 a:link {
-  // -webkit-sizing:  border-box;
-  // -moz-sizing:     border-box;
-  // box-sizing:      border-box;
-  color:           $light-teal;
+  color:           darken($teal, 5%);
   display:         inline-block;
   margin:          0 -.35em;
   padding:         0 .35em;
@@ -106,13 +103,13 @@ a:link {
 a:active,
 a:focus,
 a:hover {
-  color:           $light-red;
+  color:           $light-red !important;
 }
 a:visited {
-  // color:           $teal;
+  color:           desaturate(lighten($teal, 25%), 50%);
 }
 a:focus {
-  outline:         .15em solid lighten($light-teal, 5%);
+  outline:         .15em solid lighten($teal, 5%);
 }
 ul {
   list-style:      none;

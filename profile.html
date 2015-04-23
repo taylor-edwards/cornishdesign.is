@@ -7,8 +7,8 @@ layout: default
 </div>
 <article class="col-3">
   <header role="heading">
-    <h3 class="pagesubtitle">{{ page.subtitle }}</h3>
-    <h2 class="pagetitle">{{ page.title }}</h2>
+    <h3 class="pagesubtitle">&nbsp;</h3>
+    <h2 class="pagetitle">&nbsp;</h2>
   </header>
   <aside class="meta col-5">
     <ul class="contact preserve"></ul>
@@ -85,6 +85,7 @@ layout: default
                                + '</strong></a></p>';
     }
 
+    /* If there's a portrait available, use it. Otherwise, hide the container entirely */
     if (profile["Image"] == "TRUE") {
       document.getElementsByClassName("portrait-wrapper")[0].innerHTML += '<img src="{{ "assets/portraits/3x5/" | prepend: site.baseurl }}'
                                                                         + profile["Your Name"].escapeSpaces()
@@ -109,12 +110,14 @@ layout: default
     /* Use the given profile's color specifications to recolor certain elements */
     document.body.innerHTML += '<style>h2{ color:'
                              + profile["Bottom Color"]
-                             + ';} h3,a,a:link, a:visited { color:'
+                             + ';}h3,a,a:link,a:visited{ color:'
                              + profile["Top Color"]
                              + ';} h2 { border-color:'
                              + profile["Top Color"]
-                             + ' !important;} a:focus { outline: .15em solid'
+                             + ' !important;}a:focus{ outline: .15em solid'
                              + profile["Top Color"]
-                             + ';}</style>';
+                             + ';}a:hover,a:focus,a:active{color:'
+                             + profile["Bottom Color"]
+                             + ' !important;}</style>';
   }
 </script>
