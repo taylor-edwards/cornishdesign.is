@@ -25,9 +25,10 @@ header {
   height:                11em;
   margin-top:            -11em;
   width:                 100vw;
+  z-index:               1;
 }
 .designers {
-  margin-top:             20vw;
+  margin-top:            3em;
 }
 .grid {
   margin-top:            1.5em;
@@ -49,20 +50,7 @@ header {
     width:               100%;
   }
   a:focus {
-    outline:              none;
-  }
-  a:hover:before {
-    .circle {
-      background:         $light-red;
-      border-radius:      50%;
-      content:            ""; /* required for IE8 */
-      height:             100%;
-      left:               0;
-      position:           absolute;
-      top:                0;
-      width:              100%;
-      z-index:            1;
-    }
+    outline:             none;
   }
 }
 .circle {
