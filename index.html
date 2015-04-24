@@ -71,7 +71,7 @@ permalink: /
           colorCode   = "x" + profile["Top Color"].substring(1,7),
           image       = '<img src="{{ "assets/portraits/1x1/" | prepend: site.baseurl }}'
                       + profile["Your Name"].escapeSpaces()
-                      + '.jpg">';
+                      + '.jpg" width="221" height="221">';
       if (profile["Image"] == "FALSE") image = '<div class="grey"></div>';
       grid.innerHTML += '<li class="col-1 grid-item '
                       + patternCode
