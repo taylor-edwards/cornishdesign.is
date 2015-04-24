@@ -48,7 +48,7 @@ permalink: /projects/
     var projectCategories = [];
     for (i=0; i<data.length; i++) {
       projectsArray.push(data[i]);
-      if (projectCategories.indexOf(data[i]["Project Category"]) == -1) {
+      if (projectCategories.indexOf(data[i]["Project Category"]) == -1 && data[i]["Project Category"] != "") {
         projectCategories.push(data[i]["Project Category"]);
       }
     }
