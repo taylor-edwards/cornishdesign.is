@@ -11,7 +11,8 @@ layout: default
     <ul class="meta">
     </ul>
   </aside>
-  <div>
+  <div class="content">
+    <div class="image-feature"></div>
     <p class="statement"></p>
   </div>
 </article>
@@ -104,5 +105,16 @@ layout: default
                              + ';}a:hover,a:focus,a:active{color:'
                              + project["Bottom Color"]
                              + ';}</style>';
+
+    if (project["Project Images"] > 0) {
+      var name = project["Your Name"].escapeSpaces();
+      for (i=1; i<=project["Project Images"]; i++) {
+        document.getElementById("image-" + i).innerHTML += '<img src="/assets/projects/'
+                                                         + name
+                                                         + '/'
+                                                         + i
+                                                         + '.jpg">'
+      }
+    }
   }
 </script>

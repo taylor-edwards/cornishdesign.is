@@ -88,6 +88,9 @@ header {
   padding-bottom:         160%;
   width:                  100%;
 }
+.content img {
+  margin:                 1.5em 0 0;
+}
 @include media-query($large) {
   .meta {
     ul {
