@@ -31,6 +31,10 @@
   <meta name="msapplication-TileImage" content="{{ 'mstile-144x144.png' | prepend: site.baseurl }}">
   <meta name="theme-color" content="#ffffff">
 
+  <!--    Page Specific Styles    -->
+  <style id="styles">
+  </style>
+
   <script>
     /* Load Typekit Fonts */
     (function(d) {
@@ -60,6 +64,7 @@
     var name = getURLParameter("name");
     var pname = getURLParameter("pname");
 
+    /* Clean up URLs for link text */
     function shortenURL(url) {
       if (url.indexOf("http://") == 0) return url.substr(7,url.length);
       if (url.indexOf("https://") == 0) return url.substr(8,url.length);

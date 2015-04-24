@@ -1,17 +1,9 @@
-/***************************************************/
-/* View CSS guidelines in main.scss before editing */
-/***************************************************/
-
+/* TYPOGRAPHY */
 body {
   font-family:     $base-font-family;
   font-size:       $base-font-size;
   font-weight:     300;
   line-height:     1.5;
-}
-hr {
-  border:          none;
-  border-bottom:   .3em solid;
-  margin:          1.5em 0 1.2em;
 }
 a > h1,
 a > h2,
@@ -61,9 +53,6 @@ h5 {
   letter-spacing:  .04em;
   line-height:     1.5;
 }
-h4 {
-  margin-bottom:   0 !important;
-}
 .pagetitle {
   border-bottom:   .075em solid $light-teal;
   line-height:     .8333;
@@ -71,26 +60,11 @@ h4 {
   overflow:        hidden;
 }
 p,
-ul,
-ol {
+ul {
   margin:          0 0 1.5em;
 }
 p {
   max-width:       32em;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-p,
-ul,
-ol {
-  &:first-child,
-  img + &,
-  div[class*="placeholder"] + & {
-    margin-top:    0;
-  }
 }
 a,
 a:link {
@@ -113,9 +87,6 @@ a:focus {
 }
 ul {
   list-style:      none;
-  padding:         0;
-}
-ol {
   padding:         0;
 }
 li,
@@ -149,9 +120,6 @@ strong {
   }
 }
 @include media-query($medium) {
-  body {
-    // font-size:     3vw;
-  }
   h1 {
     font-size:     4em;
   }
