@@ -94,7 +94,8 @@ li p {
   margin-top:      0 !important;
   margin-bottom:   0 !important;
 }
-strong {
+strong,
+.capital {
   text-transform:  uppercase;
 }
 .unlist li {
@@ -103,15 +104,6 @@ strong {
 }
 .unlist li:last-child {
   margin-right:    0;
-}
-.capital {
-  text-transform:  uppercase;
-}
-.preserve {
-  white-space:     nowrap;
-}
-.center {
-  text-align:      center;
 }
 /* Smaller header:body ratios on smaller screens */
 @include media-query($large) {

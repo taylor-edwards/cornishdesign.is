@@ -88,7 +88,7 @@ layout: default
     if (profile["Image"] == "TRUE") {
       document.getElementsByClassName("portrait-wrapper")[0].innerHTML += '<img src="{{ "assets/portraits/3x5/" | prepend: site.baseurl }}'
                                                                         + profile["Your Name"].escapeSpaces()
-                                                                        + '.jpg">'
+                                                                        + '.jpg" width="518" height="829">'
     } else {
       document.getElementsByClassName("portrait-wrapper")[0].parentNode.setAttribute("style","display:none;");
     }
