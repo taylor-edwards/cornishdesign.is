@@ -20,6 +20,11 @@ body > footer.row {
 header {
   margin-bottom:         0 !important;
 }
+aside {
+  .col-1 {
+    margin-bottom:       1.5em !important;
+  }
+}
 .pattern {
   background-blend-mode: multiply;
   height:                11em;
@@ -28,7 +33,7 @@ header {
   z-index:               1;
 }
 .designers {
-  margin-top:            6em;
+  margin-top:            4.5em;
 }
 .grid {
   margin-top:            1.5em;
@@ -51,6 +56,18 @@ header {
   }
   a:focus {
     outline:             none;
+  }
+  a:hover .circle:before,
+  a:focus .circle:before {
+    content: "";
+    border-radius: 50%;
+    height: 100%;
+    left: 0;
+    mix-blend-mode:multiply;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index:1;
   }
 }
 .circle {

@@ -34,18 +34,7 @@ permalink: /
 </article>
 
 <!--    Page Specific Styles    -->
-<!-- MOVE TO HEAD IN PRODUCTION -->
 <style id="styles">
-  .grid-item a:hover .circle:before,
-  .grid-item a:focus .circle:before {
-    content: "";
-    border-radius: 50%;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
 </style>
 
 <script src="{{ site.baseurl }}js/tabletop.js"></script>
@@ -77,7 +66,7 @@ permalink: /
   }
 
   function renderContent(data) {
-    console.log(data);
+    var styles = [];
 
     /* Create and populate the grid element profile names */
     for (i=0; i<data.length; i++) {
@@ -100,25 +89,28 @@ permalink: /
                       + profile["Your Name"]
                       + '</h5></a></li>';
 
-      /* Create custom styles for every grid item (create duplicate styles) */
-      document.getElementById("styles").innerHTML += '.'
-                                                   + patternCode
-                                                   + '.'
-                                                   + colorCode
-                                                   + ' .circle:before{background:url('
-                                                   + patternDir[profile["Pattern"]]
-                                                   + colorName[profile["Top Color"]]
-                                                   + '.png);mix-blend-mode:multiply;z-index:1}'
-
-                                                   + '.'
-                                                   + colorCode
-                                                   + ' a:hover,.'
-                                                   + colorCode
-                                                   + ' a:focus{color:'
-                                                   + profile["Top Color"]
-                                                   + ' ;}'
-
-                                                   ;
+      /* Check if style already exists then add it if needed */
+      if (styles.indexOf(patternCode + colorCode) < 0) {
+        styles.push(patternCode + colorCode);
+        document.getElementById("styles").innerHTML += '.'
+                                                     + patternCode
+                                                     + '.'
+                                                     + colorCode
+                                                     + ' .circle:before{background:url('
+                                                     + patternDir[profile["Pattern"]]
+                                                     + colorName[profile["Top Color"]]
+                                                     + '.png)}';
+      }
+      if (styles.indexOf(colorCode) < 0) {
+        styles.push(colorCode);
+        document.getElementById("styles").innerHTML += '.'
+                                                     + colorCode
+                                                     + ' a:hover,.'
+                                                     + colorCode
+                                                     + ' a:focus{color:'
+                                                     + profile["Top Color"]
+                                                     + '}';
+      }
     }
   }
 </script>
