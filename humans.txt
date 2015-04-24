@@ -1,12 +1,16 @@
 /* TEAM */
-Designer, Developer, Producer: Taylor Edwards
-Site:                          www.tayloredwards.net
-Twitter:                       @Rumudiez
-Location:                      Seattle, Washington
+Designer, Developer: Taylor Edwards
+Site:                www.tayloredwards.net
+Twitter:             @Rumudiez
+Location:            Seattle, Washington
 
 Designer: Patrick Perkins
 Site:     http://cargocollective.com/pperkins
 Location: Seattle, Washington
+
+Photographer: Matthew Verzola
+Site:         www.blackwatchstudio.com
+Location:     Seattle, Washington
 
 /* THANKS */
 Dan Shafer: dandy-design.com
