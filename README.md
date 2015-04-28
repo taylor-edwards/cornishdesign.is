@@ -11,8 +11,8 @@ This project uses Jekyll CMS. To set up a local development environment, just se
 This branch utilizes [tabletop.js](https://github.com/jsoma/tabletop) to integrate content directly from a source Google Spreadsheet document to populate templates with copy and local image assets.
 
 ## Team
-Designer, Developer: **[Taylor Edwards](www.tayloredwards.net)**
+Designer, Developer: **[Taylor Edwards](http://www.tayloredwards.net)**
 
 Designer: **[Patrick Perkins](http://cargocollective.com/pperkins)**
 
-Photographer: **[Matthew Verzola](www.blackwatchstudio.com)**
+Photographer: **[Matthew Verzola](http://www.blackwatchstudio.com)**
