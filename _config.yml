@@ -9,7 +9,8 @@ copyright:    >
               All projects and content are protected accordingly 
               by their respective owners.
 baseurl:      /
-url:          "http://cornishdesign.is"
+# url:          "http://cornishdesign.is"
+url:          "http://rumudiez.github.io/cornishdesign.is"
 
 parent:       Cornish College of the Arts
 parentURL:    "http://www.cornish.edu"
