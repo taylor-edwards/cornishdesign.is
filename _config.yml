@@ -11,7 +11,7 @@ copyright:    >
 # baseurl:      /
 # url:          "http://cornishdesign.is"
 url:          "http://rumudiez.github.io"
-baseurl:      "/cornishdesign.is"
+baseurl:      "/cornishdesign.is/"
 
 parent:       Cornish College of the Arts
 parentURL:    "http://www.cornish.edu"
