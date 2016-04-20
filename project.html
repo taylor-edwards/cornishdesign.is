@@ -109,7 +109,7 @@ layout: default
     if (project["Project Images"] > 0) {
       var name = project["Your Name"].escapeSpaces();
       for (i=1; i<=project["Project Images"]; i++) {
-        document.getElementById("image-" + i).innerHTML += '<img src="cornishdesign.is/assets/projects/'
+        document.getElementById("image-" + i).innerHTML += '<img src="{{ site.baseurl }}assets/projects/'
                                                          + name
                                                          + '/'
                                                          + i
