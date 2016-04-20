@@ -8,9 +8,10 @@ copyright:    >
               This website is an open source project on Github. 
               All projects and content are protected accordingly 
               by their respective owners.
-baseurl:      /
+# baseurl:      /
 # url:          "http://cornishdesign.is"
-url:          "http://rumudiez.github.io/cornishdesign.is"
+url:          "http://rumudiez.github.io"
+baseurl:      "/cornishdesign.is"
 
 parent:       Cornish College of the Arts
 parentURL:    "http://www.cornish.edu"
