@@ -8,7 +8,7 @@ This project uses Jekyll CMS. To set up a local development environment, just se
     * The site will be served at `localhost:4000`
 
 ## Spreadsheets
-This branch utilizes [tabletop.js](https://github.com/jsoma/tabletop) to integrate content directly from a source Google Spreadsheet document to populate templates with copy and local image assets.
+Content is sourced from a CSV file exported from a Google Spreadsheet and is integrated with [Papa Parse](https://www.papaparse.com/) to populate templates.
 
 ## Team
 Designer, Developer: **[Taylor Edwards](http://www.tayloredwards.net)**

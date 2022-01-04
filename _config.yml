@@ -8,12 +8,11 @@ copyright:    >
               This website is an open source project on Github. 
               All projects and content are protected accordingly 
               by their respective owners.
-baseurl:      /
-url:          "http://cornishdesign.is"
-
+baseurl:      "/cornishdesign.is/"
+url:          "https://taylor-edwards.github.io"
 parent:       Cornish College of the Arts
 parentURL:    "http://www.cornish.edu"
-github:       "https://github.com/Rumudiez/cornishdesign.is"
+github:       "https://github.com/taylor-edwards/cornishdesign.is"
 
 # Build settings
 markdown: kramdown
