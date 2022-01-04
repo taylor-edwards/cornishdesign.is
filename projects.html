@@ -12,18 +12,22 @@ permalink: /projects/
 <article id="projects">
 </article>
 
-<script src="{{ site.baseurl }}js/tabletop.js"></script>
+<script src="{{ site.baseurl }}js/papaparse.min.js"></script>
 <script>
   var projects = document.getElementById("projects");
 
   window.onload = function() { init() };
-
   function init() {
-    Tabletop.init( { key: "1CvMr7Scpa4v38EAWSOwqPbs1hpcNCNvZ395jfRXOkCM",
-                     callback: renderContent,
-                     simpleSheet: true,
-                     orderby: "name",
-                     reverse: true } );
+    Papa.parse(
+      "{{ site.url }}{{ site.baseurl }}data.csv",
+      {
+        download: true,
+        header: true,
+        complete: function(result) {
+          renderContent(result.data)
+        }
+      }
+    )
 
     /* Use the pattern! */
     var patternFills = document.getElementsByClassName("pattern");

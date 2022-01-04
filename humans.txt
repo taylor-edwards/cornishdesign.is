@@ -1,7 +1,6 @@
 /* TEAM */
 Designer, Developer: Taylor Edwards
-Site:                www.tayloredwards.net
-Twitter:             @Rumudiez
+Site:                tayloredwards.net
 Location:            Seattle, Washington
 
 Designer: Patrick Perkins
@@ -18,9 +17,8 @@ John Berry
 Julie Meyers
 The CCA Design BFA class of 2015
 
-                            
-/* SITE */    
-Last update: 2015/05/01
+/* SITE */
+Last update: 2021/01/04
 Standards:   HTML5, CSS3, ES5
-Components:  Jekyll, Tabletop.js
+Components:  Jekyll, Papa Parse
 Software:    Sublime Text 2, Jekyll
